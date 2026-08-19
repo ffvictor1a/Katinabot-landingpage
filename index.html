@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Κατίνα — Το σύστημα που καλύπτει όλη τη διαδρομή του πελάτη σου</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Plus+Jakarta+Sans:ital,wght@0,400;0,500;0,600;0,700;1,500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#FFFBF5;
+    --bg-alt:#FFEFDE;
+    --bg-alt-2:#FFF6EC;
+    --ink:#2B1B10;
+    --ink-soft:#6E5A49;
+    --orange:#FF6A2B;
+    --orange-deep:#E24E10;
+    --orange-soft:#FFDCC0;
+    --teal:#146B62;
+    --teal-soft:#DDF0EA;
+    --card:#FFFFFF;
+    --line:#F3DDC3;
+    --radius-lg:32px;
+    --radius-md:22px;
+    --radius-sm:14px;
+    --shadow:0 20px 45px -20px rgba(226,78,16,0.25);
+    --ease:cubic-bezier(.16,1,.3,1);
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--ink);
+    font-family:'Plus Jakarta Sans',system-ui,sans-serif;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  h1,h2,h3,.display{
+    font-family:'Bricolage Grotesque',system-ui,sans-serif;
+    font-weight:700;
+    letter-spacing:-0.01em;
+    line-height:1.05;
+    margin:0;
+  }
+  p{margin:0;color:var(--ink-soft);line-height:1.6;}
+  a{text-decoration:none;color:inherit;}
+  img,svg{display:block;}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 28px;}
+  section{position:relative;}
+
+  .reveal{opacity:0;transform:translateY(26px);transition:opacity .8s var(--ease), transform .8s var(--ease);}
+  .reveal.in{opacity:1;transform:translateY(0);}
+  .reveal-stagger > *{opacity:0;transform:translateY(22px);transition:opacity .7s var(--ease), transform .7s var(--ease);}
+  .reveal-stagger.in > *{opacity:1;transform:translateY(0);}
+  .reveal-stagger.in > *:nth-child(1){transition-delay:.02s;}
+  .reveal-stagger.in > *:nth-child(2){transition-delay:.10s;}
+  .reveal-stagger.in > *:nth-child(3){transition-delay:.18s;}
+  .reveal-stagger.in > *:nth-child(4){transition-delay:.26s;}
+  .reveal-stagger.in > *:nth-child(5){transition-delay:.34s;}
+  .reveal-stagger.in > *:nth-child(6){transition-delay:.42s;}
+
+  header{
+    position:sticky;top:0;z-index:50;
+    background:rgba(255,251,245,0.82);
+    backdrop-filter:blur(14px);
+    border-bottom:1px solid var(--line);
+  }
+  .nav{display:flex;align-items:center;justify-content:space-between;padding:16px 28px;max-width:1180px;margin:0 auto;}
+  .logo{display:flex;align-items:center;gap:10px;font-family:'Bricolage Grotesque';font-weight:800;font-size:22px;}
+  .logo-mark{width:34px;height:34px;border-radius:11px;background:linear-gradient(135deg,var(--orange),var(--orange-deep));display:flex;align-items:center;justify-content:center;color:#fff;font-size:17px;transform:rotate(-6deg);box-shadow:0 8px 18px -6px rgba(226,78,16,.55);}
+  .nav-links{display:flex;gap:34px;font-size:15px;font-weight:600;}
+  .nav-links a{color:var(--ink-soft);transition:color .25s var(--ease);}
+  .nav-links a:hover{color:var(--orange-deep);}
+  .nav-cta{display:flex;align-items:center;gap:14px;}
+  .btn{
+    display:inline-flex;align-items:center;justify-content:center;gap:8px;
+    padding:13px 24px;border-radius:999px;font-weight:700;font-size:15px;
+    cursor:pointer;border:none;transition:transform .35s var(--ease), box-shadow .35s var(--ease), background .3s;
+    white-space:nowrap;
+  }
+  .btn-primary{background:linear-gradient(135deg,var(--orange),var(--orange-deep));color:#fff;box-shadow:0 12px 26px -10px rgba(226,78,16,.55);}
+  .btn-primary:hover{transform:translateY(-2px) scale(1.015);box-shadow:0 18px 34px -10px rgba(226,78,16,.6);}
+  .btn-ghost{background:transparent;color:var(--ink);border:1.5px solid var(--line);}
+  .btn-ghost:hover{border-color:var(--orange);color:var(--orange-deep);}
+  .btn-sm{padding:9px 18px;font-size:13.5px;}
+
+  .hero{padding:88px 0 40px;position:relative;overflow:hidden;}
+  .blob{position:absolute;border-radius:50%;filter:blur(60px);opacity:.55;pointer-events:none;}
+  .blob-1{width:520px;height:520px;background:radial-gradient(circle at 30% 30%,var(--orange-soft),transparent 70%);top:-220px;right:-160px;}
+  .blob-2{width:380px;height:380px;background:radial-gradient(circle at 30% 30%,var(--teal-soft),transparent 70%);bottom:-160px;left:-140px;opacity:.6;}
+  .eyebrow{
+    display:inline-flex;align-items:center;gap:8px;
+    background:var(--card);border:1px solid var(--line);
+    padding:8px 16px 8px 8px;border-radius:999px;font-size:13.5px;font-weight:700;color:var(--orange-deep);
+    box-shadow:0 6px 18px -12px rgba(0,0,0,.15);
+  }
+  .eyebrow .dot{width:22px;height:22px;border-radius:50%;background:linear-gradient(135deg,var(--orange),var(--orange-deep));display:flex;align-items:center;justify-content:center;font-size:11px;}
+  .hero-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:60px;align-items:center;position:relative;z-index:1;}
+  .hero h1{font-size:clamp(38px,4.6vw,60px);margin-top:22px;}
+  .hero h1 .hl{color:var(--orange-deep);position:relative;white-space:nowrap;}
+  .hero h1 .hl svg{position:absolute;left:0;bottom:-6px;width:100%;height:14px;}
+  .hero p.lead{font-size:18.5px;margin-top:20px;max-width:520px;transition:opacity .25s ease;}
+  .hero-actions{display:flex;gap:14px;margin-top:32px;flex-wrap:wrap;}
+  .trust-row{display:flex;align-items:center;gap:18px;margin-top:34px;font-size:13.5px;color:var(--ink-soft);flex-wrap:wrap;}
+  .trust-row span{display:flex;align-items:center;gap:6px;font-weight:600;}
+  .trust-row svg{width:16px;height:16px;color:var(--teal);flex-shrink:0;}
+
+  .toggle{display:inline-flex;background:var(--bg-alt-2);border:1px solid var(--line);padding:5px;border-radius:999px;margin-top:36px;gap:4px;}
+  .toggle button{
+    border:none;background:transparent;padding:10px 20px;border-radius:999px;font-weight:700;font-size:14px;
+    color:var(--ink-soft);cursor:pointer;transition:all .35s var(--ease);
+  }
+  .toggle button.active{background:var(--card);color:var(--orange-deep);box-shadow:0 8px 18px -10px rgba(0,0,0,.18);}
+
+  .hero-visual{position:relative;}
+  .demo-card{
+    background:var(--card);border-radius:var(--radius-lg);border:1px solid var(--line);
+    box-shadow:0 30px 60px -25px rgba(43,27,16,.28);padding:22px;
+    transform:rotate(2deg);transition:transform .5s var(--ease);
+  }
+  .demo-card:hover{transform:rotate(0deg) translateY(-4px);}
+  .demo-top{display:flex;align-items:center;gap:10px;margin-bottom:16px;}
+  .demo-avatar{width:38px;height:38px;border-radius:50%;background:linear-gradient(135deg,var(--orange),var(--orange-deep));display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;}
+  .demo-name{font-weight:700;font-size:14.5px;}
+  .demo-sub{font-size:12px;color:var(--ink-soft);}
+  .bubble{border-radius:18px;padding:12px 16px;font-size:14px;margin-bottom:10px;max-width:88%;line-height:1.45;}
+  .bubble.user{background:var(--bg-alt);margin-left:auto;border-bottom-right-radius:6px;color:var(--ink);}
+  .bubble.bot{background:var(--teal-soft);border-bottom-left-radius:6px;color:#0d3a34;}
+  .menu-chip{display:inline-flex;align-items:center;gap:6px;background:var(--bg-alt-2);border:1px solid var(--line);padding:6px 12px;border-radius:999px;font-size:12.5px;font-weight:600;margin:2px 4px 2px 0;}
+  .float-card{
+    position:absolute;background:var(--card);border-radius:18px;border:1px solid var(--line);
+    box-shadow:0 20px 40px -18px rgba(43,27,16,.3);padding:14px 16px;display:flex;align-items:center;gap:10px;
+    animation:floaty 5s ease-in-out infinite;
+  }
+  .float-1{top:-26px;left:-30px;animation-delay:0s;}
+  .float-2{bottom:-22px;right:-24px;animation-delay:1.4s;}
+  @keyframes floaty{0%,100%{transform:translateY(0);}50%{transform:translateY(-10px);}}
+  .float-card .ico{width:30px;height:30px;border-radius:10px;background:var(--orange-soft);display:flex;align-items:center;justify-content:center;color:var(--orange-deep);flex-shrink:0;}
+  .float-card .t1{font-size:12.5px;font-weight:700;}
+  .float-card .t2{font-size:11px;color:var(--ink-soft);}
+
+  .section{padding:96px 0;}
+  .section-head{max-width:640px;margin:0 auto 56px;text-align:center;}
+  .section-head .eyebrow{margin-bottom:18px;}
+  .section-head h2{font-size:clamp(28px,3.4vw,42px);}
+  .section-head p{margin-top:16px;font-size:17px;}
+  .alt{background:var(--bg-alt-2);}
+
+  .journey{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;position:relative;}
+  .journey::before{
+    content:"";position:absolute;top:52px;left:9%;right:9%;height:2px;
+    background:repeating-linear-gradient(90deg,var(--orange-soft) 0 10px,transparent 10px 20px);
+  }
+  .stage{background:var(--card);border:1px solid var(--line);border-radius:var(--radius-md);padding:30px 26px;position:relative;transition:transform .4s var(--ease), box-shadow .4s var(--ease);}
+  .stage:hover{transform:translateY(-6px);box-shadow:var(--shadow);}
+  .stage-num{width:44px;height:44px;border-radius:14px;background:linear-gradient(135deg,var(--orange),var(--orange-deep));color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:16px;margin-bottom:18px;position:relative;z-index:1;box-shadow:0 10px 20px -8px rgba(226,78,16,.5);}
+  .stage h3{font-size:19px;margin-bottom:10px;}
+  .stage p{font-size:14.5px;}
+
+  .modules{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
+  .mcard{
+    background:var(--card);border:1px solid var(--line);border-radius:var(--radius-md);
+    padding:28px 26px;transition:transform .4s var(--ease), box-shadow .4s var(--ease), border-color .4s;
+    position:relative;overflow:hidden;
+  }
+  .mcard:hover{transform:translateY(-6px);box-shadow:var(--shadow);border-color:var(--orange-soft);}
+  .mcard.wide{grid-column:span 2;}
+  .mcard .ico{width:48px;height:48px;border-radius:15px;background:var(--orange-soft);color:var(--orange-deep);display:flex;align-items:center;justify-content:center;margin-bottom:18px;}
+  .mcard.teal .ico{background:var(--teal-soft);color:var(--teal);}
+  .mcard h3{font-size:18.5px;margin-bottom:10px;display:flex;align-items:center;gap:10px;}
+  .mcard p{font-size:14.5px;}
+  .badge{font-size:11px;font-weight:800;padding:4px 10px;border-radius:999px;letter-spacing:.02em;}
+  .badge-live{background:var(--teal-soft);color:var(--teal);}
+  .badge-soon{background:#FFF1D6;color:#9A6B00;}
+  .mcard-list{margin-top:14px;display:flex;flex-wrap:wrap;gap:8px;}
+  .mcard-list span{font-size:12px;font-weight:600;background:var(--bg-alt-2);border:1px solid var(--line);padding:5px 11px;border-radius:999px;color:var(--ink-soft);}
+
+  .tracks{display:grid;grid-template-columns:1fr 1fr;gap:26px;}
+  .track{border-radius:var(--radius-lg);padding:40px;position:relative;overflow:hidden;}
+  .track-food{background:linear-gradient(160deg,#FFF3E8,#FFE3CC);border:1px solid var(--orange-soft);}
+  .track-stay{background:linear-gradient(160deg,#E9F6F2,#D8EFE7);border:1px solid var(--teal-soft);}
+  .track-tag{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:800;padding:7px 14px;border-radius:999px;background:rgba(255,255,255,.7);margin-bottom:20px;}
+  .track-food .track-tag{color:var(--orange-deep);}
+  .track-stay .track-tag{color:var(--teal);}
+  .track h3{font-size:24px;margin-bottom:14px;}
+  .track ul{list-style:none;padding:0;margin:20px 0 0;display:flex;flex-direction:column;gap:12px;}
+  .track li{display:flex;gap:10px;font-size:14.5px;color:var(--ink);align-items:flex-start;}
+  .track li svg{width:18px;height:18px;flex-shrink:0;margin-top:2px;}
+  .track-food li svg{color:var(--orange-deep);}
+  .track-stay li svg{color:var(--teal);}
+
+  .brain{
+    background:linear-gradient(135deg,#2B1B10,#3E2415);
+    border-radius:var(--radius-lg);padding:64px;color:#FFF6EC;
+    display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center;position:relative;overflow:hidden;
+  }
+  .brain::before{content:"";position:absolute;width:400px;height:400px;background:radial-gradient(circle,rgba(255,106,43,.35),transparent 70%);top:-140px;right:-100px;filter:blur(10px);}
+  .brain h2{font-size:clamp(26px,3vw,34px);color:#fff;}
+  .brain p{color:#E9D9C8;margin-top:18px;font-size:16px;}
+  .brain-diagram{display:flex;flex-direction:column;gap:12px;position:relative;z-index:1;}
+  .brain-node{
+    display:flex;align-items:center;gap:14px;background:rgba(255,255,255,.06);
+    border:1px solid rgba(255,255,255,.14);padding:16px 18px;border-radius:16px;
+    backdrop-filter:blur(6px);transition:transform .4s var(--ease), background .4s;
+  }
+  .brain-node:hover{transform:translateX(6px);background:rgba(255,255,255,.1);}
+  .brain-node .ico{width:34px;height:34px;border-radius:10px;background:var(--orange);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+  .brain-node .tt{font-weight:700;font-size:14.5px;color:#fff;}
+  .brain-node .ts{font-size:12.5px;color:#C9B4A0;}
+
+  .cta-final{
+    text-align:center;border-radius:var(--radius-lg);
+    background:linear-gradient(135deg,var(--orange),var(--orange-deep));
+    padding:70px 40px;position:relative;overflow:hidden;color:#fff;
+  }
+  .cta-final::after{content:"";position:absolute;inset:0;background:radial-gradient(circle at 80% 20%,rgba(255,255,255,.25),transparent 55%);}
+  .cta-final h2{font-size:clamp(28px,3.6vw,40px);color:#fff;position:relative;}
+  .cta-final p{color:#FFE4D2;margin-top:14px;font-size:16.5px;position:relative;}
+  .cta-final .hero-actions{justify-content:center;position:relative;margin-top:30px;}
+  .cta-final .btn-ghost{border-color:rgba(255,255,255,.5);color:#fff;}
+  .cta-final .btn-primary{background:#fff;color:var(--orange-deep);box-shadow:0 12px 26px -10px rgba(0,0,0,.35);}
+
+  footer{padding:44px 0;border-top:1px solid var(--line);}
+  .foot-row{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;font-size:13.5px;color:var(--ink-soft);}
+
+  @media (max-width:920px){
+    .nav-links{display:none;}
+    .hero-grid{grid-template-columns:1fr;gap:44px;}
+    .journey{grid-template-columns:1fr;}
+    .journey::before{display:none;}
+    .modules{grid-template-columns:1fr;}
+    .mcard.wide{grid-column:span 1;}
+    .tracks{grid-template-columns:1fr;}
+    .brain{grid-template-columns:1fr;padding:40px 26px;}
+    .float-card{display:none;}
+  }
+  @media (prefers-reduced-motion:reduce){
+    *{animation:none !important;transition:none !important;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="nav">
+    <div class="logo"><div class="logo-mark">Κ</div>Κατίνα</div>
+    <nav class="nav-links">
+      <a href="#modules">Τι κάνει</a>
+      <a href="#journey">Η διαδρομή</a>
+      <a href="#tracks">Για ποιον</a>
+      <a href="#brain">Γιατί Κατίνα</a>
+    </nav>
+    <div class="nav-cta">
+      <a href="#demo" class="btn btn-ghost btn-sm">Δες demo</a>
+      <a href="#demo" class="btn btn-primary btn-sm">Δοκίμασε δωρεάν</a>
+    </div>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="blob blob-1"></div>
+  <div class="blob blob-2"></div>
+  <div class="wrap">
+    <div class="hero-grid">
+      <div class="reveal in" id="hero-copy">
+        <div class="eyebrow"><span class="dot">✨</span> Ανέβασε φωτογραφία του μενού σου → Έτοιμο σε 60 δευτερόλεπτα</div>
+        <h1>Το σύστημα που καλύπτει
+          <span class="hl">όλη τη διαδρομή<svg viewBox="0 0 300 14" fill="none"><path d="M2 10C60 2 240 2 298 10" stroke="var(--orange-soft)" stroke-width="6" stroke-linecap="round"/></svg></span>
+          του πελάτη σου</h1>
+        <p class="lead" id="lead-text">Από τη στιγμή που σε ψάχνει, μέχρι τη στιγμή που φεύγει — ένας AI βοηθός, μια σελίδα-βιτρίνα, παραγγελία από το κινητό και ειδοποιήσεις όταν κάτι χρειάζεται προσοχή. Όλα μοιράζονται τα ίδια δεδομένα.</p>
+        <div class="hero-actions">
+          <a href="#demo" class="btn btn-primary">Φτιάξε τη σελίδα σου τώρα</a>
+          <a href="#modules" class="btn btn-ghost">Δες τι περιλαμβάνει</a>
+        </div>
+        <div class="toggle" id="audience-toggle">
+          <button class="active" data-a="food">🍽️ Εστίαση</button>
+          <button data-a="stay">🏡 Φιλοξενία</button>
+        </div>
+        <div class="trust-row">
+          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M20 6 9 17l-5-5"/></svg>Χωρίς κάρτα</span>
+          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M20 6 9 17l-5-5"/></svg>Ζωντανό demo σε 60 δευτερόλεπτα</span>
+          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M20 6 9 17l-5-5"/></svg>Ελληνικά &amp; Αγγλικά</span>
+        </div>
+      </div>
+
+      <div class="hero-visual reveal in" style="transition-delay:.1s">
+        <div class="demo-card">
+          <div class="demo-top">
+            <div class="demo-avatar">Κ</div>
+            <div>
+              <div class="demo-name">Ο βοηθός της Ταβέρνας «Στο Λιμάνι»</div>
+              <div class="demo-sub">Απαντάει σε δευτερόλεπτα</div>
+            </div>
+          </div>
+          <div class="bubble user">Έχετε κάτι χωρίς γλουτένη για 4 άτομα;</div>
+          <div class="bubble bot">Φυσικά! Προτείνω ντάκο, ψητά λαχανικά και το φιλέτο λαβράκι. Θες να σου φτιάξω μια προσφορά με τις τιμές;</div>
+          <div style="margin-top:14px;">
+            <span class="menu-chip">🐟 Λαβράκι €14</span>
+            <span class="menu-chip">🥗 Ντάκος €7</span>
+            <span class="menu-chip">🍷 Κρασί σπιτικό</span>
+          </div>
+        </div>
+        <div class="float-card float-1">
+          <div class="ico"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v12H7l-3 3z"/></svg></div>
+          <div><div class="t1">+1 νέα παραγγελία</div><div class="t2">Τραπέζι 5 · μόλις τώρα</div></div>
+        </div>
+        <div class="float-card float-2">
+          <div class="ico"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg></div>
+          <div><div class="t1">QR έτοιμο</div><div class="t2">Για κάθε τραπέζι</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="journey">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow"><span class="dot">🧭</span> Η διαδρομή του πελάτη</div>
+      <h2>Ένα σύστημα, τρία στάδια</h2>
+      <p>Ο ανταγωνισμός σου έχει ένα εργαλείο για κρατήσεις, ένα chatbot και ένα σύστημα παραγγελιών — κανένα δεν μιλάει με το άλλο. Η Κατίνα καλύπτει και τα τρία με τα ίδια δεδομένα.</p>
+    </div>
+    <div class="journey reveal-stagger">
+      <div class="stage">
+        <div class="stage-num">1</div>
+        <h3>Πριν έρθει</h3>
+        <p>Σε βρίσκει, ρωτάει τον AI βοηθό, βλέπει το μενού στη σελίδα-βιτρίνα, κλείνει τραπέζι ή δωμάτιο — χωρίς τηλέφωνο.</p>
+      </div>
+      <div class="stage">
+        <div class="stage-num">2</div>
+        <h3>Όσο είναι μέσα</h3>
+        <p>Σκανάρει το QR, παραγγέλνει, ρωτάει το μενού, καλεί σερβιτόρο. Το προσωπικό εγκρίνει, η κουζίνα βλέπει ζωντανά.</p>
+      </div>
+      <div class="stage">
+        <div class="stage-num">3</div>
+        <h3>Αφού φύγει</h3>
+        <p>Ευχαριστίες, αίτημα για κριτική όταν έχει νόημα, και ειδοποίηση στον υπεύθυνο αν κάτι πήγε στραβά.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section alt" id="modules">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow"><span class="dot">🧩</span> Τι περιλαμβάνει</div>
+      <h2>Ό,τι χρειάζεται το μαγαζί σου, σε ένα σύστημα</h2>
+      <p>Δίνεις το site σου ή φωτογραφίες του μενού — το υπόλοιπο το κάνει η Κατίνα.</p>
+    </div>
+
+    <div class="modules reveal-stagger">
+      <div class="mcard wide">
+        <span class="badge badge-live" style="position:absolute;top:26px;right:26px;">Ζωντανό</span>
+        <div class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.5 8.5 0 0 1-8.5 8.5c-1.35 0-2.62-.32-3.73-.9L3 21l1.9-5.77A8.5 8.5 0 1 1 21 11.5Z"/></svg></div>
+        <h3>Ο AI βοηθός</h3>
+        <p>Μπαίνει στο site σου με μία γραμμή κώδικα. Μαθαίνει από το site σου και από αρχεία που ανεβάζεις (μενού, τιμοκατάλογοι) και απαντάει σαν υπάλληλος που ξέρει το μαγαζί — σε 50+ γλώσσες.</p>
+        <div class="mcard-list">
+          <span>Κρατήσεις με Google Calendar</span><span>Στατιστικά &amp; ιστορικό</span><span>Λίστα με ό,τι δεν ήξερε να απαντήσει</span>
+        </div>
+      </div>
+
+      <div class="mcard">
+        <span class="badge badge-live" style="position:absolute;top:26px;right:26px;">Ζωντανό</span>
+        <div class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v3M12 18v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M3 12h3M18 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"/><circle cx="12" cy="12" r="4"/></svg></div>
+        <h3>Στήσιμο σε 1 λεπτό</h3>
+        <p>Δίνεις ένα link ή φωτογραφίες του μενού. Το σύστημα διαβάζει όνομα, στοιχεία, λογότυπο, χρώμα και ολόκληρο τον τιμοκατάλογο μόνο του — χωρίς λογαριασμό, χωρίς κάρτα.</p>
+      </div>
+
+      <div class="mcard">
+        <span class="badge badge-live" style="position:absolute;top:26px;right:26px;">Ζωντανό</span>
+        <div class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9.5 12 3l9 6.5V21H3z"/><path d="M9 21v-7h6v7"/></svg></div>
+        <h3>Η σελίδα-βιτρίνα</h3>
+        <p>Δημόσια σελίδα με δική της διεύθυνση — για μαγαζιά χωρίς site, γίνεται το site τους. Τρία στυλ, μενού για κινητό, QR για τα τραπέζια, διόρθωση από εσένα.</p>
+      </div>
+
+      <div class="mcard">
+        <span class="badge badge-live" style="position:absolute;top:26px;right:26px;">Ζωντανό</span>
+        <div class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18M3 12h18M3 18h11"/><circle cx="19" cy="18" r="2.4"/></svg></div>
+        <h3>Ο AI πωλητής</h3>
+        <p>Όταν ο πελάτης ρωτάει «τι θα κόστιζε για 20 άτομα;», φτιάχνει έτοιμη προσφορά με πραγματικές τιμές και προτάσεις συνδυασμών — μέσα στη συνομιλία.</p>
+      </div>
+
+      <div class="mcard wide">
+        <span class="badge badge-soon" style="position:absolute;top:26px;right:26px;">Έρχεται σύντομα</span>
+        <div class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><path d="M14 14h3v3h-3zM19 14v3M14 19h3"/></svg></div>
+        <h3>Παραγγελία από το τραπέζι + εφαρμογή προσωπικού</h3>
+        <p>Ο πελάτης σκανάρει το QR, βλέπει το μενού, φτιάχνει καλάθι, ρωτάει «κάτι δροσιστικό χωρίς αλκοόλ;» και παραγγέλνει. Το προσωπικό εγκρίνει κάθε παραγγελία από το κινητό του πριν φύγει για κουζίνα ή μπαρ — καμία παραγγελία δεν περνάει χωρίς άνθρωπο.</p>
+        <div class="mcard-list">
+          <span>Κάλεσμα σερβιτόρου</span><span>Λογαριασμός ανά άτομο</span><span>Ζωντανή οθόνη κουζίνας/μπαρ</span>
+        </div>
+      </div>
+
+      <div class="mcard teal">
+        <span class="badge badge-soon" style="position:absolute;top:26px;right:26px;">Έρχεται σύντομα</span>
+        <div class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-4.5-7-10a7 7 0 0 1 14 0c0 5.5-7 10-7 10Z"/><circle cx="12" cy="11" r="2.4"/></svg></div>
+        <h3>Concierge για καταλύματα</h3>
+        <p>Ξέρει πότε ένα μήνυμα είναι σοβαρό, ξέρει τι ώρα είναι, και ειδοποιεί τον υπεύθυνο μόνο όταν χρειάζεται — χωρίς να δίνει ποτέ κωδικό πόρτας σε άγνωστο.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="tracks">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="eyebrow"><span class="dot">🎯</span> Για ποιον είναι</div>
+      <h2>Δύο κόσμοι, ένα σύστημα</h2>
+      <p>Η εστίαση και η φιλοξενία δεν έχουν τον ίδιο πόνο — η Κατίνα προσαρμόζεται σε κάθε έναν.</p>
+    </div>
+    <div class="tracks reveal-stagger">
+      <div class="track track-food">
+        <span class="track-tag">🍽️ Εστίαση — εστιατόριο, καφέ, μπαρ, ταβέρνα</span>
+        <h3>Λιγότερες χαμένες παραγγελίες, λιγότερα «πού είναι ο σερβιτόρος;»</h3>
+        <p>Πολύς κόσμος, λίγο προσωπικό, τηλέφωνα για ωράρια και κρατήσεις, μενού που ξανατυπώνεται κάθε φορά που αλλάζει μια τιμή.</p>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M20 6 9 17l-5-5"/></svg>Ο βοηθός απαντάει 24/7 αντί για το τηλέφωνο</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M20 6 9 17l-5-5"/></svg>Αλλάζεις μια τιμή μία φορά, αλλάζει παντού</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M20 6 9 17l-5-5"/></svg>QR στο τραπέζι αντί για επανεκτύπωση μενού</li>
+        </ul>
+      </div>
+      <div class="track track-stay">
+        <span class="track-tag">🏡 Φιλοξενία — ξενοδοχείο, ενοικιαζόμενα, βίλες</span>
+        <h3>Ο επισκέπτης ρωτάει μία φορά, όχι πέντε</h3>
+        <p>Κωδικός πόρτας, wifi, ώρα check-out — τα ίδια ερωτήματα ξανά και ξανά, χωρίς reception 24 ώρες.</p>
+        <ul>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M20 6 9 17l-5-5"/></svg>Επτά αυτόματα μηνύματα από την κράτηση μέχρι την αναχώρηση</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M20 6 9 17l-5-5"/></svg>Ειδοποίηση αμέσως όταν κάτι είναι σοβαρό, ό,τι ώρα κι αν είναι</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M20 6 9 17l-5-5"/></svg>Δεν πλημμυρίζει με ειδοποιήσεις — μόνο όταν χρειάζεται</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section alt" id="brain">
+  <div class="wrap">
+    <div class="brain reveal">
+      <div>
+        <div class="eyebrow" style="background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.16);color:#FFD9BC;">
+          <span class="dot">🧠</span> Το επιχείρημα που μας ξεχωρίζει
+        </div>
+        <h2 style="margin-top:20px;">Ένας πίνακας ελέγχου για όλο το μαγαζί</h2>
+        <p>Ο βοηθός ξέρει το μενού επειδή είναι το ίδιο μενού που παραγγέλνει ο πελάτης, που εμφανίζεται στη σελίδα, που τυπώνεται στο QR. Εδώ αλλάζεις μια τιμή μία φορά.</p>
+        <a href="#demo" class="btn btn-primary" style="margin-top:28px;">Δες το σε δράση</a>
+      </div>
+      <div class="brain-diagram">
+        <div class="brain-node"><div class="ico">💬</div><div><div class="tt">AI βοηθός</div><div class="ts">Απαντάει με το πραγματικό μενού</div></div></div>
+        <div class="brain-node"><div class="ico">🖥️</div><div><div class="tt">Σελίδα-βιτρίνα</div><div class="ts">Δείχνει τις ίδιες τιμές</div></div></div>
+        <div class="brain-node"><div class="ico">📱</div><div><div class="tt">Παραγγελία από QR</div><div class="ts">Παραγγέλνει από το ίδιο μενού</div></div></div>
+        <div class="brain-node"><div class="ico">🔔</div><div><div class="tt">Ειδοποιήσεις</div><div class="ts">Ξέρει τι συμβαίνει, σε πραγματικό χρόνο</div></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="demo">
+  <div class="wrap">
+    <div class="cta-final reveal">
+      <h2>Δώσε το site σου, πάρε τη σελίδα σου σε 60 δευτερόλεπτα</h2>
+      <p>Χωρίς λογαριασμό, χωρίς κάρτα. Το demo κρατάει 7 μέρες.</p>
+      <div class="hero-actions">
+        <a href="#" class="btn btn-primary">Φτιάξε τη σελίδα σου δωρεάν</a>
+        <a href="#" class="btn btn-ghost">Κλείσε μια σύντομη παρουσίαση</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot-row">
+    <div class="logo" style="font-size:17px;"><div class="logo-mark" style="width:26px;height:26px;font-size:13px;">Κ</div>Κατίνα</div>
+    <div>© 2026 Κατίνα. Φτιαγμένο για εστίαση &amp; φιλοξενία στην Ελλάδα.</div>
+  </div>
+</footer>
+
+<script>
+  const io = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });
+  },{threshold:.15});
+  document.querySelectorAll('.reveal, .reveal-stagger').forEach(el=>io.observe(el));
+
+  const copy = {
+    food: "Από τη στιγμή που σε ψάχνει, μέχρι τη στιγμή που φεύγει — ένας AI βοηθός, μια σελίδα-βιτρίνα, παραγγελία από το κινητό και ειδοποιήσεις όταν κάτι χρειάζεται προσοχή. Όλα μοιράζονται τα ίδια δεδομένα.",
+    stay: "Από την κράτηση μέχρι την αναχώρηση — ένας ψηφιακός concierge που απαντάει στα ίδια ερωτήματα, ξέρει πότε κάτι είναι σοβαρό, και ειδοποιεί τον υπεύθυνο μόνο όταν χρειάζεται."
+  };
+  document.querySelectorAll('#audience-toggle button').forEach(btn=>{
+    btn.addEventListener('click', ()=>{
+      document.querySelectorAll('#audience-toggle button').forEach(b=>b.classList.remove('active'));
+      btn.classList.add('active');
+      const key = btn.dataset.a;
+      const lead = document.getElementById('lead-text');
+      lead.style.opacity = 0;
+      setTimeout(()=>{ lead.textContent = copy[key]; lead.style.opacity = 1; }, 200);
+    });
+  });
+</script>
+
+</body>
+</html>
