@@ -27,6 +27,20 @@
     --shadow:0 20px 45px -20px rgba(226,78,16,0.25);
     --ease:cubic-bezier(.16,1,.3,1);
   }
+  body.mode-stay{
+    --bg:#F4FAFF;
+    --bg-alt:#E6F1FF;
+    --bg-alt-2:#EDF6FF;
+    --ink:#102033;
+    --ink-soft:#4D627A;
+    --orange:#3B82F6;
+    --orange-deep:#1557B0;
+    --orange-soft:#CFE4FF;
+    --teal:#2563EB;
+    --teal-soft:#DCEBFF;
+    --line:#C9DDF5;
+    --shadow:0 20px 45px -20px rgba(21,87,176,0.28);
+  }
   *{box-sizing:border-box;}
   html{scroll-behavior:smooth;}
   body{
@@ -345,7 +359,7 @@
   }
 </style>
 </head>
-<body>
+<body class="mode-food">
 
 <header>
   <div class="nav">
@@ -382,14 +396,14 @@
   <div class="wrap">
     <div class="hero-grid">
       <div class="reveal in" id="hero-copy">
-        <div class="eyebrow"><span class="dot">✨</span> Σύστημα επιχείρησης — setup σε 1 λεπτό</div>
-        <h1>Σύστημα διαχείρισης
+        <div class="eyebrow" data-mode-text="heroEyebrow"><span class="dot">✨</span> Σύστημα επιχείρησης — setup σε 1 λεπτό</div>
+        <h1 data-mode-text="heroTitle">Σύστημα διαχείρισης
           <span class="hl">ροής πελάτη<svg viewBox="0 0 300 14" fill="none"><path d="M2 10C60 2 240 2 298 10" stroke="var(--orange-soft)" stroke-width="6" stroke-linecap="round"/></svg></span>
           για εστίαση και φιλοξενία</h1>
-        <p class="lead" id="lead-text">AI βοηθός, δημόσια σελίδα, mobile παραγγελία και ειδοποιήσεις με κοινά δεδομένα.</p>
+        <p class="lead" id="lead-text" data-mode-text="heroLead">AI βοηθός, δημόσια σελίδα, mobile παραγγελία και ειδοποιήσεις με κοινά δεδομένα.</p>
         <div class="hero-actions">
-          <a href="#demo" class="btn btn-primary">Δημιούργησε σελίδα</a>
-          <a href="#modules" class="btn btn-ghost">Δες τι περιλαμβάνει</a>
+          <a href="#demo" class="btn btn-primary" data-mode-text="heroPrimary">Δημιούργησε σελίδα</a>
+          <a href="#modules" class="btn btn-ghost" data-mode-text="heroSecondary">Δες τι περιλαμβάνει</a>
         </div>
         <div class="toggle" id="audience-toggle">
           <button class="active" data-a="food">🍽️ Εστίαση</button>
@@ -407,25 +421,25 @@
           <div class="demo-top">
             <div class="demo-avatar">Κ</div>
             <div>
-              <div class="demo-name">AI βοηθός: Ταβέρνα «Στο Λιμάνι»</div>
-              <div class="demo-sub">Χρόνος απόκρισης: δευτερόλεπτα</div>
+              <div class="demo-name" data-mode-text="demoName">AI βοηθός: Ταβέρνα «Στο Λιμάνι»</div>
+              <div class="demo-sub" data-mode-text="demoSub">Χρόνος απόκρισης: δευτερόλεπτα</div>
             </div>
           </div>
-          <div class="bubble user">Έχετε κάτι χωρίς γλουτένη για 4 άτομα;</div>
-          <div class="bubble bot">Ναι. Διαθέσιμα: ντάκος, ψητά λαχανικά, λαβράκι. Να δημιουργήσω προσφορά;</div>
+          <div class="bubble user" data-mode-text="demoUser">Έχετε κάτι χωρίς γλουτένη για 4 άτομα;</div>
+          <div class="bubble bot" data-mode-text="demoBot">Ναι. Διαθέσιμα: ντάκος, ψητά λαχανικά, λαβράκι. Να δημιουργήσω προσφορά;</div>
           <div style="margin-top:14px;">
-            <span class="menu-chip">🐟 Λαβράκι €14</span>
-            <span class="menu-chip">🥗 Ντάκος €7</span>
-            <span class="menu-chip">🍷 Κρασί σπιτικό</span>
+            <span class="menu-chip" data-mode-text="demoChip1">🐟 Λαβράκι €14</span>
+            <span class="menu-chip" data-mode-text="demoChip2">🥗 Ντάκος €7</span>
+            <span class="menu-chip" data-mode-text="demoChip3">🍷 Κρασί σπιτικό</span>
           </div>
         </div>
         <div class="float-card float-1">
           <div class="ico"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v12H7l-3 3z"/></svg></div>
-          <div><div class="t1">+1 νέα παραγγελία</div><div class="t2">Τραπέζι 5 · μόλις τώρα</div></div>
+          <div><div class="t1" data-mode-text="float1Title">+1 νέα παραγγελία</div><div class="t2" data-mode-text="float1Sub">Τραπέζι 5 · μόλις τώρα</div></div>
         </div>
         <div class="float-card float-2">
           <div class="ico"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg></div>
-          <div><div class="t1">QR έτοιμο</div><div class="t2">Για κάθε τραπέζι</div></div>
+          <div><div class="t1" data-mode-text="float2Title">QR έτοιμο</div><div class="t2" data-mode-text="float2Sub">Για κάθε τραπέζι</div></div>
         </div>
       </div>
     </div>
@@ -435,25 +449,25 @@
 <section class="section" id="journey">
   <div class="wrap">
     <div class="section-head reveal">
-      <div class="eyebrow"><span class="dot">🧭</span> Ροή πελάτη</div>
-      <h2>Τρία στάδια λειτουργίας</h2>
-      <p>Κρατήσεις, chat και παραγγελίες είναι συνήθως τρία ξεχωριστά εργαλεία. Η katina τα καλύπτει με τα ίδια δεδομένα.</p>
+      <div class="eyebrow" data-mode-text="journeyEyebrow"><span class="dot">🧭</span> Ροή πελάτη</div>
+      <h2 data-mode-text="journeyTitle">Τρία στάδια λειτουργίας</h2>
+      <p data-mode-text="journeyLead">Κρατήσεις, chat και παραγγελίες είναι συνήθως τρία ξεχωριστά εργαλεία. Η katina τα καλύπτει με τα ίδια δεδομένα.</p>
     </div>
     <div class="journey reveal-stagger">
       <div class="stage">
         <div class="stage-num">1</div>
-        <h3>Πριν την επίσκεψη</h3>
-        <p>Ρωτάει τον AI βοηθό, βλέπει το μενού, κλείνει τραπέζι ή δωμάτιο χωρίς τηλέφωνο.</p>
+        <h3 data-mode-text="stage1Title">Πριν την επίσκεψη</h3>
+        <p data-mode-text="stage1Text">Ρωτάει τον AI βοηθό, βλέπει το μενού, κλείνει τραπέζι ή δωμάτιο χωρίς τηλέφωνο.</p>
       </div>
       <div class="stage">
         <div class="stage-num">2</div>
-        <h3>Κατά την επίσκεψη</h3>
-        <p>Σκανάρει το QR, παραγγέλνει, καλεί σερβιτόρο. Το προσωπικό εγκρίνει, η κουζίνα βλέπει την παραγγελία.</p>
+        <h3 data-mode-text="stage2Title">Κατά την επίσκεψη</h3>
+        <p data-mode-text="stage2Text">Σκανάρει το QR, παραγγέλνει, καλεί σερβιτόρο. Το προσωπικό εγκρίνει, η κουζίνα βλέπει την παραγγελία.</p>
       </div>
       <div class="stage">
         <div class="stage-num">3</div>
-        <h3>Μετά την επίσκεψη</h3>
-        <p>Αποστολή ευχαριστίας, αίτημα κριτικής και ειδοποίηση υπευθύνου για σφάλμα.</p>
+        <h3 data-mode-text="stage3Title">Μετά την επίσκεψη</h3>
+        <p data-mode-text="stage3Text">Αποστολή ευχαριστίας, αίτημα κριτικής και ειδοποίηση υπευθύνου για σφάλμα.</p>
       </div>
     </div>
   </div>
@@ -462,58 +476,56 @@
 <section class="section alt" id="modules">
   <div class="wrap">
     <div class="section-head reveal">
-      <div class="eyebrow"><span class="dot">🧩</span> Τι περιλαμβάνει</div>
-      <h2>Βασικές λειτουργίες σε ένα σύστημα</h2>
-      <p>Δίνεις site ή φωτογραφίες μενού. Η katina δημιουργεί τα δεδομένα.</p>
+      <div class="eyebrow" data-mode-text="modulesEyebrow"><span class="dot">🧩</span> Τι περιλαμβάνει</div>
+      <h2 data-mode-text="modulesTitle">Βασικές λειτουργίες σε ένα σύστημα</h2>
+      <p data-mode-text="modulesLead">Δίνεις site ή φωτογραφίες μενού. Η katina δημιουργεί τα δεδομένα.</p>
     </div>
 
     <div class="modules reveal-stagger">
       <div class="mcard wide">
         <span class="badge badge-live" style="position:absolute;top:26px;right:26px;">Ζωντανό</span>
         <div class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.5 8.5 0 0 1-8.5 8.5c-1.35 0-2.62-.32-3.73-.9L3 21l1.9-5.77A8.5 8.5 0 1 1 21 11.5Z"/></svg></div>
-        <h3>Ο AI βοηθός</h3>
-        <p>Ενσωμάτωση στο site με μία γραμμή κώδικα. Απαντήσεις σε 50+ γλώσσες από site και αρχεία.</p>
+        <h3 data-mode-text="module1Title">Ο AI βοηθός</h3>
+        <p data-mode-text="module1Text">Ενσωμάτωση στο site με μία γραμμή κώδικα. Απαντήσεις σε 50+ γλώσσες από site και αρχεία.</p>
         <div class="mcard-list">
-          <span>Google Calendar</span><span>Στατιστικά &amp; ιστορικό</span><span>Αναπάντητες ερωτήσεις</span>
+          <span data-mode-text="module1Chip1">Google Calendar</span><span data-mode-text="module1Chip2">Στατιστικά &amp; ιστορικό</span><span data-mode-text="module1Chip3">Αναπάντητες ερωτήσεις</span>
         </div>
       </div>
 
       <div class="mcard">
         <span class="badge badge-live" style="position:absolute;top:26px;right:26px;">Ζωντανό</span>
         <div class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v3M12 18v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M3 12h3M18 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"/><circle cx="12" cy="12" r="4"/></svg></div>
-        <h3>Στήσιμο σε 1 λεπτό</h3>
-        <p>Εισαγωγή link ή φωτογραφιών μενού. Αυτόματη καταγραφή ονόματος, στοιχείων, λογότυπου και τιμών.</p>
+        <h3 data-mode-text="module2Title">Στήσιμο σε 1 λεπτό</h3>
+        <p data-mode-text="module2Text">Εισαγωγή link ή φωτογραφιών μενού. Αυτόματη καταγραφή ονόματος, στοιχείων, λογότυπου και τιμών.</p>
       </div>
 
       <div class="mcard">
         <span class="badge badge-live" style="position:absolute;top:26px;right:26px;">Ζωντανό</span>
         <div class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9.5 12 3l9 6.5V21H3z"/><path d="M9 21v-7h6v7"/></svg></div>
-        <h3>Δημόσια σελίδα</h3>
-        <p>Σελίδα με δικό της URL. Τρία στυλ, mobile μενού και QR ανά τραπέζι.</p>
+        <h3 data-mode-text="module3Title">Δημόσια σελίδα</h3>
+        <p data-mode-text="module3Text">Σελίδα με δικό της URL. Τρία στυλ, mobile μενού και QR ανά τραπέζι.</p>
       </div>
 
       <div class="mcard">
         <span class="badge badge-live" style="position:absolute;top:26px;right:26px;">Ζωντανό</span>
         <div class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18M3 12h18M3 18h11"/><circle cx="19" cy="18" r="2.4"/></svg></div>
-        <h3>AI προσφορές</h3>
-        <p>Υπολογισμός κόστους για ομάδες με πραγματικές τιμές και έτοιμη προσφορά.</p>
+        <h3 data-mode-text="module4Title">AI προσφορές</h3>
+        <p data-mode-text="module4Text">Υπολογισμός κόστους για ομάδες με πραγματικές τιμές και έτοιμη προσφορά.</p>
       </div>
 
       <div class="mcard wide">
-        <span class="badge badge-soon" style="position:absolute;top:26px;right:26px;">Έρχεται σύντομα</span>
         <div class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><path d="M14 14h3v3h-3zM19 14v3M14 19h3"/></svg></div>
-        <h3>QR παραγγελία + εφαρμογή προσωπικού</h3>
-        <p>Ο πελάτης σκανάρει QR και παραγγέλνει από κινητό. Το προσωπικό εγκρίνει πριν από κουζίνα ή μπαρ.</p>
+        <h3 data-mode-text="module5Title">QR παραγγελία + εφαρμογή προσωπικού</h3>
+        <p data-mode-text="module5Text">Ο πελάτης σκανάρει QR και παραγγέλνει από κινητό. Το προσωπικό εγκρίνει πριν από κουζίνα ή μπαρ.</p>
         <div class="mcard-list">
-          <span>Κλήση σερβιτόρου</span><span>Λογαριασμός ανά άτομο</span><span>Οθόνη κουζίνας/μπαρ</span>
+          <span data-mode-text="module5Chip1">Κλήση σερβιτόρου</span><span data-mode-text="module5Chip2">Λογαριασμός ανά άτομο</span><span data-mode-text="module5Chip3">Οθόνη κουζίνας/μπαρ</span>
         </div>
       </div>
 
       <div class="mcard teal">
-        <span class="badge badge-soon" style="position:absolute;top:26px;right:26px;">Έρχεται σύντομα</span>
         <div class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-4.5-7-10a7 7 0 0 1 14 0c0 5.5-7 10-7 10Z"/><circle cx="12" cy="11" r="2.4"/></svg></div>
-        <h3>Concierge για καταλύματα</h3>
-        <p>Απαντάει ερωτήσεις επισκεπτών και ειδοποιεί τον υπεύθυνο μόνο όταν χρειάζεται. Δεν δίνει κωδικούς πόρτας σε αγνώστους.</p>
+        <h3 data-mode-text="module6Title">Concierge για καταλύματα</h3>
+        <p data-mode-text="module6Text">Απαντάει ερωτήσεις επισκεπτών και ειδοποιεί τον υπεύθυνο μόνο όταν χρειάζεται. Δεν δίνει κωδικούς πόρτας σε αγνώστους.</p>
       </div>
     </div>
   </div>
@@ -522,29 +534,29 @@
 <section class="section" id="tracks">
   <div class="wrap">
     <div class="section-head reveal">
-      <div class="eyebrow"><span class="dot">🎯</span> Για ποιον είναι</div>
-      <h2>Δύο κλάδοι, ένα σύστημα</h2>
-      <p>Η εστίαση και η φιλοξενία έχουν διαφορετικές ροές. Η katina υποστηρίζει και τις δύο.</p>
+      <div class="eyebrow" data-mode-text="tracksEyebrow"><span class="dot">🎯</span> Για ποιον είναι</div>
+      <h2 data-mode-text="tracksTitle">Δύο κλάδοι, ένα σύστημα</h2>
+      <p data-mode-text="tracksLead">Η εστίαση και η φιλοξενία έχουν διαφορετικές ροές. Η katina υποστηρίζει και τις δύο.</p>
     </div>
     <div class="tracks reveal-stagger">
       <div class="track track-food">
-        <span class="track-tag">🍽️ Εστίαση — εστιατόριο, καφέ, μπαρ, ταβέρνα</span>
-        <h3>Λιγότερα σφάλματα παραγγελίας</h3>
-        <p>Υψηλή κίνηση, περιορισμένο προσωπικό, τηλεφωνικές κρατήσεις και συχνές αλλαγές τιμών.</p>
+        <span class="track-tag" data-mode-text="track1Tag">🍽️ Εστίαση — εστιατόριο, καφέ, μπαρ, ταβέρνα</span>
+        <h3 data-mode-text="track1Title">Λιγότερα σφάλματα παραγγελίας</h3>
+        <p data-mode-text="track1Text">Υψηλή κίνηση, περιορισμένο προσωπικό, τηλεφωνικές κρατήσεις και συχνές αλλαγές τιμών.</p>
         <ul>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M20 6 9 17l-5-5"/></svg>Ο βοηθός απαντάει 24/7 αντί για το τηλέφωνο</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M20 6 9 17l-5-5"/></svg>Μία αλλαγή τιμής ενημερώνει όλα τα σημεία</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M20 6 9 17l-5-5"/></svg>QR στο τραπέζι αντί για επανεκτύπωση μενού</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M20 6 9 17l-5-5"/></svg><span data-mode-text="track1Item1">Ο βοηθός απαντάει 24/7 αντί για το τηλέφωνο</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M20 6 9 17l-5-5"/></svg><span data-mode-text="track1Item2">Μία αλλαγή τιμής ενημερώνει όλα τα σημεία</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M20 6 9 17l-5-5"/></svg><span data-mode-text="track1Item3">QR στο τραπέζι αντί για επανεκτύπωση μενού</span></li>
         </ul>
       </div>
       <div class="track track-stay">
-        <span class="track-tag">🏡 Φιλοξενία — ξενοδοχείο, ενοικιαζόμενα, βίλες</span>
-        <h3>Αυτόματες απαντήσεις επισκεπτών</h3>
-        <p>Κωδικός πόρτας, Wi-Fi και check-out απαντώνται χωρίς 24ωρη reception.</p>
+        <span class="track-tag" data-mode-text="track2Tag">🏡 Φιλοξενία — ξενοδοχείο, ενοικιαζόμενα, βίλες</span>
+        <h3 data-mode-text="track2Title">Αυτόματες απαντήσεις επισκεπτών</h3>
+        <p data-mode-text="track2Text">Κωδικός πόρτας, Wi-Fi και check-out απαντώνται χωρίς 24ωρη reception.</p>
         <ul>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M20 6 9 17l-5-5"/></svg>Επτά αυτόματα μηνύματα από την κράτηση μέχρι την αναχώρηση</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M20 6 9 17l-5-5"/></svg>Άμεση ειδοποίηση για κρίσιμο αίτημα</li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M20 6 9 17l-5-5"/></svg>Ειδοποιήσεις μόνο όταν χρειάζεται</li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M20 6 9 17l-5-5"/></svg><span data-mode-text="track2Item1">Επτά αυτόματα μηνύματα από την κράτηση μέχρι την αναχώρηση</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M20 6 9 17l-5-5"/></svg><span data-mode-text="track2Item2">Άμεση ειδοποίηση για κρίσιμο αίτημα</span></li>
+          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M20 6 9 17l-5-5"/></svg><span data-mode-text="track2Item3">Ειδοποιήσεις μόνο όταν χρειάζεται</span></li>
         </ul>
       </div>
     </div>
@@ -556,17 +568,17 @@
     <div class="brain reveal">
       <div>
         <div class="eyebrow" style="background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.16);color:#FFD9BC;">
-          <span class="dot">⚙️</span> Τι μας ξεχωρίζει
+          <span class="dot">⚙️</span> <span data-mode-text="brainEyebrow">Τι μας ξεχωρίζει</span>
         </div>
-        <h2 style="margin-top:20px;">Ένα σύστημα, μία πηγή δεδομένων</h2>
-        <p>Ο βοηθός, η σελίδα και η παραγγελία χρησιμοποιούν το ίδιο μενού. Αλλάζεις μια τιμή μία φορά και ενημερώνεται παντού.</p>
-        <a href="#demo" class="btn btn-primary" style="margin-top:28px;">Δες demo</a>
+        <h2 style="margin-top:20px;" data-mode-text="brainTitle">Ένα σύστημα, μία πηγή δεδομένων</h2>
+        <p data-mode-text="brainText">Ο βοηθός, η σελίδα και η παραγγελία χρησιμοποιούν το ίδιο μενού. Αλλάζεις μια τιμή μία φορά και ενημερώνεται παντού.</p>
+        <a href="#demo" class="btn btn-primary" style="margin-top:28px;" data-mode-text="brainCta">Δες demo</a>
       </div>
       <div class="brain-diagram">
-        <div class="brain-node"><div class="ico">💬</div><div><div class="tt">AI βοηθός</div><div class="ts">Απαντάει με το πραγματικό μενού</div></div></div>
-        <div class="brain-node"><div class="ico">🖥️</div><div><div class="tt">Δημόσια σελίδα</div><div class="ts">Δείχνει τις ίδιες τιμές</div></div></div>
-        <div class="brain-node"><div class="ico">📱</div><div><div class="tt">Παραγγελία από QR</div><div class="ts">Παραγγέλνει από το ίδιο μενού</div></div></div>
-        <div class="brain-node"><div class="ico">🔔</div><div><div class="tt">Ειδοποιήσεις</div><div class="ts">Ενημέρωση σε πραγματικό χρόνο</div></div></div>
+        <div class="brain-node"><div class="ico">💬</div><div><div class="tt" data-mode-text="brainNode1Title">AI βοηθός</div><div class="ts" data-mode-text="brainNode1Text">Απαντάει με το πραγματικό μενού</div></div></div>
+        <div class="brain-node"><div class="ico">🖥️</div><div><div class="tt" data-mode-text="brainNode2Title">Δημόσια σελίδα</div><div class="ts" data-mode-text="brainNode2Text">Δείχνει τις ίδιες τιμές</div></div></div>
+        <div class="brain-node"><div class="ico">📱</div><div><div class="tt" data-mode-text="brainNode3Title">Παραγγελία από QR</div><div class="ts" data-mode-text="brainNode3Text">Παραγγέλνει από το ίδιο μενού</div></div></div>
+        <div class="brain-node"><div class="ico">🔔</div><div><div class="tt" data-mode-text="brainNode4Title">Ειδοποιήσεις</div><div class="ts" data-mode-text="brainNode4Text">Ενημέρωση σε πραγματικό χρόνο</div></div></div>
       </div>
     </div>
   </div>
@@ -576,28 +588,28 @@
   <div class="wrap">
     <div class="section-head reveal">
       <div class="eyebrow"><span class="dot">❓</span> Συχνές ερωτήσεις</div>
-      <h2>Βασικές απαντήσεις</h2>
+      <h2 data-mode-text="faqTitle">Βασικές απαντήσεις</h2>
     </div>
     <div class="faq" id="faq-list">
       <div class="faq-item">
-        <button class="faq-q"><span>Χρειάζομαι τεχνικές γνώσεις για να το στήσω;</span><span class="plus"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span></button>
-        <div class="faq-a"><div class="faq-a-inner">Όχι. Δίνεις link site ή φωτογραφίες μενού. Το σύστημα δημιουργεί σελίδα, βοηθό και τιμοκατάλογο. Οι αλλαγές γίνονται από φόρμες.</div></div>
+        <button class="faq-q"><span data-mode-text="faq1Q">Χρειάζομαι τεχνικές γνώσεις για να το στήσω;</span><span class="plus"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span></button>
+        <div class="faq-a"><div class="faq-a-inner" data-mode-text="faq1A">Όχι. Δίνεις link site ή φωτογραφίες μενού. Το σύστημα δημιουργεί σελίδα, βοηθό και τιμοκατάλογο. Οι αλλαγές γίνονται από φόρμες.</div></div>
       </div>
       <div class="faq-item">
-        <button class="faq-q"><span>Τι γίνεται με τα δεδομένα μου και του πελάτη;</span><span class="plus"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span></button>
-        <div class="faq-a"><div class="faq-a-inner">Το μενού, οι τιμές και οι συνομιλίες παραμένουν δικά σου. Ο βοηθός δεν δίνει ευαίσθητα στοιχεία όπως κωδικούς πόρτας, και ασυνήθιστα αιτήματα προωθούνται σε άνθρωπο.</div></div>
+        <button class="faq-q"><span data-mode-text="faq2Q">Τι γίνεται με τα δεδομένα μου και του πελάτη;</span><span class="plus"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span></button>
+        <div class="faq-a"><div class="faq-a-inner" data-mode-text="faq2A">Το μενού, οι τιμές και οι συνομιλίες παραμένουν δικά σου. Ο βοηθός δεν δίνει ευαίσθητα στοιχεία όπως κωδικούς πόρτας, και ασυνήθιστα αιτήματα προωθούνται σε άνθρωπο.</div></div>
       </div>
       <div class="faq-item">
-        <button class="faq-q"><span>Πόσο κοστίζει;</span><span class="plus"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span></button>
-        <div class="faq-a"><div class="faq-a-inner">Το demo είναι δωρεάν για 7 μέρες, χωρίς κάρτα. Η τιμή ορίζεται ανά μέγεθος επιχείρησης.</div></div>
+        <button class="faq-q"><span data-mode-text="faq3Q">Πόσο κοστίζει;</span><span class="plus"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span></button>
+        <div class="faq-a"><div class="faq-a-inner" data-mode-text="faq3A">Το demo είναι δωρεάν για 7 μέρες, χωρίς κάρτα. Η τιμή ορίζεται ανά μέγεθος επιχείρησης.</div></div>
       </div>
       <div class="faq-item">
-        <button class="faq-q"><span>Δουλεύει αν δεν έχω ήδη site;</span><span class="plus"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span></button>
-        <div class="faq-a"><div class="faq-a-inner">Ναι. Η δημόσια σελίδα της katina λειτουργεί ως online σημείο παρουσίας, με δικό της URL, mobile μενού και QR ανά τραπέζι.</div></div>
+        <button class="faq-q"><span data-mode-text="faq4Q">Δουλεύει αν δεν έχω ήδη site;</span><span class="plus"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span></button>
+        <div class="faq-a"><div class="faq-a-inner" data-mode-text="faq4A">Ναι. Η δημόσια σελίδα της katina λειτουργεί ως online σημείο παρουσίας, με δικό της URL, mobile μενού και QR ανά τραπέζι.</div></div>
       </div>
       <div class="faq-item">
-        <button class="faq-q"><span>Πώς ξέρω αν η παραγγελία θα φτάσει σωστά στην κουζίνα;</span><span class="plus"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span></button>
-        <div class="faq-a"><div class="faq-a-inner">Το προσωπικό βλέπει και εγκρίνει κάθε παραγγελία από το κινητό πριν πάει σε κουζίνα ή μπαρ.</div></div>
+        <button class="faq-q"><span data-mode-text="faq5Q">Πώς ξέρω αν η παραγγελία θα φτάσει σωστά στην κουζίνα;</span><span class="plus"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg></span></button>
+        <div class="faq-a"><div class="faq-a-inner" data-mode-text="faq5A">Το προσωπικό βλέπει και εγκρίνει κάθε παραγγελία από το κινητό πριν πάει σε κουζίνα ή μπαρ.</div></div>
       </div>
     </div>
   </div>
@@ -606,18 +618,18 @@
 <section class="section" id="demo">
   <div class="wrap">
     <div class="cta-final reveal">
-      <h2>Δημιουργία σελίδας από site σε 60 δευτερόλεπτα</h2>
-      <p>Χωρίς λογαριασμό, χωρίς κάρτα. Το demo κρατάει 7 μέρες.</p>
+      <h2 data-mode-text="ctaTitle">Δημιουργία σελίδας από site σε 60 δευτερόλεπτα</h2>
+      <p data-mode-text="ctaText">Χωρίς λογαριασμό, χωρίς κάρτα. Το demo κρατάει 7 μέρες.</p>
       <div class="hero-actions">
-        <a href="#" class="btn btn-primary">Δημιούργησε δωρεάν σελίδα</a>
-        <a href="#" class="btn btn-ghost">Κλείσε μια σύντομη παρουσίαση</a>
+        <a href="#" class="btn btn-primary" data-mode-text="ctaPrimary">Δημιούργησε δωρεάν σελίδα</a>
+        <a href="#" class="btn btn-ghost" data-mode-text="ctaSecondary">Κλείσε μια σύντομη παρουσίαση</a>
       </div>
     </div>
   </div>
 </section>
 
 <div class="mobile-cta-bar">
-  <a href="#demo" class="btn btn-primary">Δημιούργησε δωρεάν σελίδα</a>
+  <a href="#demo" class="btn btn-primary" data-mode-text="mobileCta">Δημιούργησε δωρεάν σελίδα</a>
 </div>
 
 <footer>
@@ -671,18 +683,210 @@
     });
   });
 
-  const copy = {
-    food: "AI βοηθός, δημόσια σελίδα, mobile παραγγελία και ειδοποιήσεις με κοινά δεδομένα.",
-    stay: "Ψηφιακός concierge για ερωτήσεις επισκεπτών, με ειδοποίηση στον υπεύθυνο μόνο όταν χρειάζεται."
+  const modeContent = {
+    food: {
+      title: "katina — Σύστημα διαχείρισης ροής πελάτη",
+      heroEyebrow: '<span class="dot">✨</span> Σύστημα επιχείρησης — setup σε 1 λεπτό',
+      heroTitle: 'Σύστημα διαχείρισης <span class="hl">ροής πελάτη<svg viewBox="0 0 300 14" fill="none"><path d="M2 10C60 2 240 2 298 10" stroke="var(--orange-soft)" stroke-width="6" stroke-linecap="round"/></svg></span> για εστίαση και φιλοξενία',
+      heroLead: "AI βοηθός, δημόσια σελίδα, mobile παραγγελία και ειδοποιήσεις με κοινά δεδομένα.",
+      heroPrimary: "Δημιούργησε σελίδα",
+      heroSecondary: "Δες τι περιλαμβάνει",
+      demoName: "AI βοηθός: Ταβέρνα «Στο Λιμάνι»",
+      demoSub: "Χρόνος απόκρισης: δευτερόλεπτα",
+      demoUser: "Έχετε κάτι χωρίς γλουτένη για 4 άτομα;",
+      demoBot: "Ναι. Διαθέσιμα: ντάκος, ψητά λαχανικά, λαβράκι. Να δημιουργήσω προσφορά;",
+      demoChip1: "🐟 Λαβράκι €14",
+      demoChip2: "🥗 Ντάκος €7",
+      demoChip3: "🍷 Κρασί σπιτικό",
+      float1Title: "+1 νέα παραγγελία",
+      float1Sub: "Τραπέζι 5 · μόλις τώρα",
+      float2Title: "QR έτοιμο",
+      float2Sub: "Για κάθε τραπέζι",
+      journeyEyebrow: '<span class="dot">🧭</span> Ροή πελάτη',
+      journeyTitle: "Τρία στάδια λειτουργίας",
+      journeyLead: "Κρατήσεις, chat και παραγγελίες είναι συνήθως τρία ξεχωριστά εργαλεία. Η katina τα καλύπτει με τα ίδια δεδομένα.",
+      stage1Title: "Πριν την επίσκεψη",
+      stage1Text: "Ρωτάει τον AI βοηθό, βλέπει το μενού, κλείνει τραπέζι ή δωμάτιο χωρίς τηλέφωνο.",
+      stage2Title: "Κατά την επίσκεψη",
+      stage2Text: "Σκανάρει το QR, παραγγέλνει, καλεί σερβιτόρο. Το προσωπικό εγκρίνει, η κουζίνα βλέπει την παραγγελία.",
+      stage3Title: "Μετά την επίσκεψη",
+      stage3Text: "Αποστολή ευχαριστίας, αίτημα κριτικής και ειδοποίηση υπευθύνου για σφάλμα.",
+      modulesEyebrow: '<span class="dot">🧩</span> Τι περιλαμβάνει',
+      modulesTitle: "Βασικές λειτουργίες σε ένα σύστημα",
+      modulesLead: "Δίνεις site ή φωτογραφίες μενού. Η katina δημιουργεί τα δεδομένα.",
+      module1Title: "Ο AI βοηθός",
+      module1Text: "Ενσωμάτωση στο site με μία γραμμή κώδικα. Απαντήσεις σε 50+ γλώσσες από site και αρχεία.",
+      module1Chip1: "Google Calendar",
+      module1Chip2: "Στατιστικά & ιστορικό",
+      module1Chip3: "Αναπάντητες ερωτήσεις",
+      module2Title: "Στήσιμο σε 1 λεπτό",
+      module2Text: "Εισαγωγή link ή φωτογραφιών μενού. Αυτόματη καταγραφή ονόματος, στοιχείων, λογότυπου και τιμών.",
+      module3Title: "Δημόσια σελίδα",
+      module3Text: "Σελίδα με δικό της URL. Τρία στυλ, mobile μενού και QR ανά τραπέζι.",
+      module4Title: "AI προσφορές",
+      module4Text: "Υπολογισμός κόστους για ομάδες με πραγματικές τιμές και έτοιμη προσφορά.",
+      module5Title: "QR παραγγελία + εφαρμογή προσωπικού",
+      module5Text: "Ο πελάτης σκανάρει QR και παραγγέλνει από κινητό. Το προσωπικό εγκρίνει πριν από κουζίνα ή μπαρ.",
+      module5Chip1: "Κλήση σερβιτόρου",
+      module5Chip2: "Λογαριασμός ανά άτομο",
+      module5Chip3: "Οθόνη κουζίνας/μπαρ",
+      module6Title: "Concierge για καταλύματα",
+      module6Text: "Απαντάει ερωτήσεις επισκεπτών και ειδοποιεί τον υπεύθυνο μόνο όταν χρειάζεται. Δεν δίνει κωδικούς πόρτας σε αγνώστους.",
+      tracksEyebrow: '<span class="dot">🎯</span> Για ποιον είναι',
+      tracksTitle: "Δύο κλάδοι, ένα σύστημα",
+      tracksLead: "Η εστίαση και η φιλοξενία έχουν διαφορετικές ροές. Η katina υποστηρίζει και τις δύο.",
+      track1Tag: "🍽️ Εστίαση — εστιατόριο, καφέ, μπαρ, ταβέρνα",
+      track1Title: "Λιγότερα σφάλματα παραγγελίας",
+      track1Text: "Υψηλή κίνηση, περιορισμένο προσωπικό, τηλεφωνικές κρατήσεις και συχνές αλλαγές τιμών.",
+      track1Item1: "Ο βοηθός απαντάει 24/7 αντί για το τηλέφωνο",
+      track1Item2: "Μία αλλαγή τιμής ενημερώνει όλα τα σημεία",
+      track1Item3: "QR στο τραπέζι αντί για επανεκτύπωση μενού",
+      track2Tag: "🏡 Φιλοξενία — ξενοδοχείο, ενοικιαζόμενα, βίλες",
+      track2Title: "Αυτόματες απαντήσεις επισκεπτών",
+      track2Text: "Κωδικός πόρτας, Wi-Fi και check-out απαντώνται χωρίς 24ωρη reception.",
+      track2Item1: "Επτά αυτόματα μηνύματα από την κράτηση μέχρι την αναχώρηση",
+      track2Item2: "Άμεση ειδοποίηση για κρίσιμο αίτημα",
+      track2Item3: "Ειδοποιήσεις μόνο όταν χρειάζεται",
+      brainEyebrow: "Τι μας ξεχωρίζει",
+      brainTitle: "Ένα σύστημα, μία πηγή δεδομένων",
+      brainText: "Ο βοηθός, η σελίδα και η παραγγελία χρησιμοποιούν το ίδιο μενού. Αλλάζεις μια τιμή μία φορά και ενημερώνεται παντού.",
+      brainCta: "Δες demo",
+      brainNode1Title: "AI βοηθός",
+      brainNode1Text: "Απαντάει με το πραγματικό μενού",
+      brainNode2Title: "Δημόσια σελίδα",
+      brainNode2Text: "Δείχνει τις ίδιες τιμές",
+      brainNode3Title: "Παραγγελία από QR",
+      brainNode3Text: "Παραγγέλνει από το ίδιο μενού",
+      brainNode4Title: "Ειδοποιήσεις",
+      brainNode4Text: "Ενημέρωση σε πραγματικό χρόνο",
+      faqTitle: "Βασικές απαντήσεις",
+      faq1Q: "Χρειάζομαι τεχνικές γνώσεις για να το στήσω;",
+      faq1A: "Όχι. Δίνεις link site ή φωτογραφίες μενού. Το σύστημα δημιουργεί σελίδα, βοηθό και τιμοκατάλογο. Οι αλλαγές γίνονται από φόρμες.",
+      faq2Q: "Τι γίνεται με τα δεδομένα μου και του πελάτη;",
+      faq2A: "Το μενού, οι τιμές και οι συνομιλίες παραμένουν δικά σου. Ο βοηθός δεν δίνει ευαίσθητα στοιχεία όπως κωδικούς πόρτας, και ασυνήθιστα αιτήματα προωθούνται σε άνθρωπο.",
+      faq3Q: "Πόσο κοστίζει;",
+      faq3A: "Το demo είναι δωρεάν για 7 μέρες, χωρίς κάρτα. Η τιμή ορίζεται ανά μέγεθος επιχείρησης.",
+      faq4Q: "Δουλεύει αν δεν έχω ήδη site;",
+      faq4A: "Ναι. Η δημόσια σελίδα της katina λειτουργεί ως online σημείο παρουσίας, με δικό της URL, mobile μενού και QR ανά τραπέζι.",
+      faq5Q: "Πώς ξέρω αν η παραγγελία θα φτάσει σωστά στην κουζίνα;",
+      faq5A: "Το προσωπικό βλέπει και εγκρίνει κάθε παραγγελία από το κινητό πριν πάει σε κουζίνα ή μπαρ.",
+      ctaTitle: "Δημιουργία σελίδας από site σε 60 δευτερόλεπτα",
+      ctaText: "Χωρίς λογαριασμό, χωρίς κάρτα. Το demo κρατάει 7 μέρες.",
+      ctaPrimary: "Δημιούργησε δωρεάν σελίδα",
+      ctaSecondary: "Κλείσε μια σύντομη παρουσίαση",
+      mobileCta: "Δημιούργησε δωρεάν σελίδα"
+    },
+    stay: {
+      title: "katina — Ψηφιακός concierge για καταλύματα",
+      heroEyebrow: '<span class="dot">✨</span> Hosting mode — setup σε 1 λεπτό',
+      heroTitle: 'Ψηφιακός concierge <span class="hl">για καταλύματα<svg viewBox="0 0 300 14" fill="none"><path d="M2 10C60 2 240 2 298 10" stroke="var(--orange-soft)" stroke-width="6" stroke-linecap="round"/></svg></span>',
+      heroLead: "Απαντήσεις επισκεπτών, ασφαλείς κωδικοί, μηνύματα διαμονής και κρίσιμες ειδοποιήσεις.",
+      heroPrimary: "Δημιουργία concierge demo",
+      heroSecondary: "Δες λειτουργίες hosting",
+      demoName: "AI concierge: Villa Aegean",
+      demoSub: "Έλεγχος σοβαρότητας: ενεργός",
+      demoUser: "Δεν μπορώ να μπω στο δωμάτιο.",
+      demoBot: "Έγινε αίτημα πρόσβασης. Θα γίνει έλεγχος κράτησης και ειδοποίηση υπευθύνου.",
+      demoChip1: "🔐 Έλεγχος κράτησης",
+      demoChip2: "📶 Wi-Fi οδηγίες",
+      demoChip3: "🚨 Επίπεδο 3",
+      float1Title: "+1 κρίσιμο αίτημα",
+      float1Sub: "Δωμάτιο 204 · τώρα",
+      float2Title: "Access flow",
+      float2Sub: "Με ταυτοποίηση",
+      journeyEyebrow: '<span class="dot">🧭</span> Ροή διαμονής',
+      journeyTitle: "Τρία στάδια φιλοξενίας",
+      journeyLead: "Check-in, υποστήριξη και check-out λειτουργούν με κοινά στοιχεία κράτησης.",
+      stage1Title: "Πριν το check-in",
+      stage1Text: "Αποστολή οδηγιών άφιξης, ώρας πρόσβασης και στοιχείων επικοινωνίας.",
+      stage2Title: "Κατά τη διαμονή",
+      stage2Text: "Απαντήσεις για Wi-Fi, παροχές, οδηγίες και αιτήματα υποστήριξης.",
+      stage3Title: "Μετά το check-out",
+      stage3Text: "Οδηγίες αναχώρησης, αίτημα κριτικής και αναφορά συμβάντων.",
+      modulesEyebrow: '<span class="dot">🧩</span> Hosting features',
+      modulesTitle: "Λειτουργίες φιλοξενίας",
+      modulesLead: "Δίνεις site ή στοιχεία καταλύματος. Η katina δημιουργεί concierge βάση γνώσης.",
+      module1Title: "AI concierge",
+      module1Text: "Απαντήσεις σε ερωτήσεις επισκεπτών για πρόσβαση, Wi-Fi, παροχές και κανόνες.",
+      module1Chip1: "ΕΛ/ΕΝ",
+      module1Chip2: "Ιστορικό συνομιλιών",
+      module1Chip3: "Αναπάντητα αιτήματα",
+      module2Title: "Setup καταλύματος",
+      module2Text: "Εισαγωγή site, αρχείων ή οδηγιών. Αυτόματη καταγραφή παροχών, κανόνων και FAQ.",
+      module3Title: "Σελίδα πληροφοριών",
+      module3Text: "Δημόσια σελίδα με οδηγίες άφιξης, κανόνες, παροχές και στοιχεία επικοινωνίας.",
+      module4Title: "Ανίχνευση σοβαρότητας",
+      module4Text: "Τα αιτήματα βαθμολογούνται ανά κίνδυνο και ώρα. Τα κρίσιμα προωθούνται άμεσα.",
+      module5Title: "Αυτόματη αποστολή μηνυμάτων διαμονής",
+      module5Text: "Μηνύματα από κράτηση μέχρι αναχώρηση: άφιξη, πρόσβαση, υποστήριξη, check-out.",
+      module5Chip1: "Πριν την άφιξη",
+      module5Chip2: "Πρώτη νύχτα",
+      module5Chip3: "Check-out",
+      module6Title: "Ασφαλείς κωδικοί πρόσβασης",
+      module6Text: "Ο concierge ζητά ταυτοποίηση και δεν εμφανίζει κωδικούς μέσα στη συνομιλία.",
+      tracksEyebrow: '<span class="dot">🎯</span> Για ποιον είναι',
+      tracksTitle: "Κατηγορίες καταλυμάτων",
+      tracksLead: "Το hosting mode καλύπτει μικρές και μεσαίες μονάδες με περιορισμένη reception.",
+      track1Tag: "🏨 Ξενοδοχεία και ξενώνες",
+      track1Title: "Υποστήριξη χωρίς 24ωρη reception",
+      track1Text: "Συχνές ερωτήσεις, οδηγίες πρόσβασης και αιτήματα επισκεπτών από ένα σύστημα.",
+      track1Item1: "Απαντήσεις για Wi-Fi, check-out και παροχές",
+      track1Item2: "Άμεση ειδοποίηση για κρίσιμα περιστατικά",
+      track1Item3: "Αρχείο αιτημάτων ανά δωμάτιο",
+      track2Tag: "🏡 Βίλες, Airbnb και ενοικιαζόμενα",
+      track2Title: "Ασφαλής πρόσβαση επισκέπτη",
+      track2Text: "Οδηγίες άφιξης και πρόσβασης με έλεγχο στοιχείων κράτησης.",
+      track2Item1: "Μηνύματα πριν και κατά τη διαμονή",
+      track2Item2: "Κωδικοί μόνο μετά από ταυτοποίηση",
+      track2Item3: "Ειδοποίηση υπευθύνου όταν απαιτείται",
+      brainEyebrow: "Τεχνική βάση",
+      brainTitle: "Ένα σύστημα, μία βάση κράτησης",
+      brainText: "Ο concierge, οι οδηγίες και οι ειδοποιήσεις χρησιμοποιούν τα ίδια δεδομένα κράτησης και καταλύματος.",
+      brainCta: "Δες concierge demo",
+      brainNode1Title: "AI concierge",
+      brainNode1Text: "Απαντάει με στοιχεία καταλύματος",
+      brainNode2Title: "Στοιχεία κράτησης",
+      brainNode2Text: "Χρησιμοποιούνται για ταυτοποίηση",
+      brainNode3Title: "Μηνύματα διαμονής",
+      brainNode3Text: "Αποστέλλονται ανά στάδιο",
+      brainNode4Title: "Κρίσιμες ειδοποιήσεις",
+      brainNode4Text: "Προώθηση σε πραγματικό χρόνο",
+      faqTitle: "Hosting FAQ",
+      faq1Q: "Χρειάζεται τεχνική ομάδα;",
+      faq1A: "Όχι. Δίνεις site, οδηγίες ή αρχείο πληροφοριών. Η katina δημιουργεί βάση γνώσης και concierge ροές.",
+      faq2Q: "Πώς προστατεύονται οι κωδικοί πρόσβασης;",
+      faq2A: "Ο concierge ζητά στοιχεία ταυτοποίησης και στέλνει κωδικούς μόνο σε κανάλι που υπάρχει στην κράτηση.",
+      faq3Q: "Πότε ειδοποιείται ο υπεύθυνος;",
+      faq3A: "Ο υπεύθυνος ειδοποιείται για κρίσιμα αιτήματα, αλλαγή σοβαρότητας ή αποτυχία ταυτοποίησης.",
+      faq4Q: "Λειτουργεί χωρίς υπάρχον site;",
+      faq4A: "Ναι. Η katina δημιουργεί σελίδα πληροφοριών με URL, οδηγίες άφιξης, κανόνες και στοιχεία επικοινωνίας.",
+      faq5Q: "Τι γίνεται αν ο επισκέπτης ρωτήσει το ίδιο θέμα πολλές φορές;",
+      faq5A: "Το σύστημα ομαδοποιεί το θέμα και αποφεύγει διπλές ειδοποιήσεις, εκτός αν αυξηθεί η σοβαρότητα.",
+      ctaTitle: "Δημιουργία concierge demo σε 60 δευτερόλεπτα",
+      ctaText: "Χωρίς λογαριασμό, χωρίς κάρτα. Το demo κρατάει 7 μέρες.",
+      ctaPrimary: "Δημιουργία concierge demo",
+      ctaSecondary: "Κλείσε παρουσίαση hosting",
+      mobileCta: "Δημιουργία concierge demo"
+    }
   };
+
+  const applyMode = (key)=>{
+    const content = modeContent[key] || modeContent.food;
+    document.title = content.title;
+    document.body.classList.toggle('mode-stay', key === 'stay');
+    document.body.classList.toggle('mode-food', key !== 'stay');
+    document.querySelectorAll('[data-mode-text]').forEach(el=>{
+      const value = content[el.dataset.modeText];
+      if(value !== undefined) el.innerHTML = value;
+    });
+    document.querySelectorAll('#audience-toggle button').forEach(btn=>{
+      btn.classList.toggle('active', btn.dataset.a === key);
+    });
+  };
+
   document.querySelectorAll('#audience-toggle button').forEach(btn=>{
     btn.addEventListener('click', ()=>{
-      document.querySelectorAll('#audience-toggle button').forEach(b=>b.classList.remove('active'));
-      btn.classList.add('active');
-      const key = btn.dataset.a;
-      const lead = document.getElementById('lead-text');
-      lead.style.opacity = 0;
-      setTimeout(()=>{ lead.textContent = copy[key]; lead.style.opacity = 1; }, 200);
+      applyMode(btn.dataset.a);
     });
   });
 </script>
