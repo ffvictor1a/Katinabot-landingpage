@@ -199,6 +199,35 @@
   .bubble.user{background:var(--bg-alt);margin-left:auto;border-bottom-right-radius:6px;color:var(--ink);transition:background-color .35s var(--ease), color .35s var(--ease);}
   .bubble.bot{background:var(--teal-soft);border-bottom-left-radius:6px;color:#0d3a34;transition:background-color .35s var(--ease);}
   .menu-chip{display:inline-flex;align-items:center;gap:6px;background:var(--bg-alt-2);border:1px solid var(--line);padding:6px 12px;border-radius:999px;font-size:12.5px;font-weight:600;margin:2px 4px 2px 0;transition:background-color .35s var(--ease), border-color .35s var(--ease), color .35s var(--ease);}
+  button.menu-chip{cursor:pointer;color:var(--ink);font-family:inherit;}
+  button.menu-chip:hover{background:var(--orange-soft);border-color:var(--orange);}
+  button.menu-chip:active{transform:scale(.96);}
+  .demo-messages{max-height:260px;overflow-y:auto;scrollbar-width:thin;padding-right:2px;}
+  .demo-messages::-webkit-scrollbar{width:5px;}
+  .demo-messages::-webkit-scrollbar-thumb{background:var(--line);border-radius:99px;}
+  .bubble.typing{display:flex;align-items:center;gap:4px;width:44px;padding:12px 14px;}
+  .bubble.typing span{width:6px;height:6px;border-radius:50%;background:#0d3a34;opacity:.5;animation:typingDot 1s infinite ease-in-out;}
+  .bubble.typing span:nth-child(2){animation-delay:.15s;}
+  .bubble.typing span:nth-child(3){animation-delay:.3s;}
+  @keyframes typingDot{0%,60%,100%{transform:translateY(0);opacity:.35;}30%{transform:translateY(-4px);opacity:.9;}}
+  .demo-input-row{display:flex;gap:8px;margin-top:14px;}
+  .demo-input-row input{
+    flex:1;border:1px solid var(--line);background:var(--bg-alt-2);border-radius:999px;
+    padding:11px 16px;font-size:13.5px;font-family:inherit;color:var(--ink);outline:none;
+    transition:border-color .3s var(--ease), background-color .35s var(--ease);
+  }
+  .demo-input-row input:focus{border-color:var(--orange);background:var(--card);}
+  .demo-send{
+    width:40px;height:40px;flex-shrink:0;border-radius:50%;border:none;cursor:pointer;
+    background:linear-gradient(135deg,var(--orange),var(--orange-deep));color:#fff;
+    display:flex;align-items:center;justify-content:center;
+    transition:transform .25s var(--ease), box-shadow .3s var(--ease);
+    box-shadow:0 8px 18px -8px var(--primary-shadow);
+  }
+  .demo-send:hover{transform:scale(1.06);}
+  .demo-send:active{transform:scale(.94);}
+  .demo-send svg{width:16px;height:16px;}
+  .demo-hint{font-size:11px;color:var(--ink-soft);margin-top:8px;text-align:center;}
   .float-card{
     position:absolute;background:var(--card);border-radius:18px;border:1px solid var(--line);
     box-shadow:0 20px 40px -18px rgba(43,27,16,.3);padding:14px 16px;display:flex;align-items:center;gap:10px;
@@ -487,13 +516,20 @@
               <div class="demo-sub" data-mode-text="demoSub">Χρόνος απόκρισης: δευτερόλεπτα</div>
             </div>
           </div>
-          <div class="bubble user" data-mode-text="demoUser">Έχετε κάτι χωρίς γλουτένη για 4 άτομα;</div>
-          <div class="bubble bot" data-mode-text="demoBot">Ναι. Διαθέσιμα: ντάκος, ψητά λαχανικά, λαβράκι. Να δημιουργήσω προσφορά;</div>
-          <div style="margin-top:14px;">
-            <span class="menu-chip" data-mode-text="demoChip1">🐟 Λαβράκι €14</span>
-            <span class="menu-chip" data-mode-text="demoChip2">🥗 Ντάκος €7</span>
-            <span class="menu-chip" data-mode-text="demoChip3">🍷 Κρασί σπιτικό</span>
+          <div class="demo-messages" id="demo-messages">
+            <div class="bubble user" data-mode-text="demoUser">Έχετε κάτι χωρίς γλουτένη για 4 άτομα;</div>
+            <div class="bubble bot" data-mode-text="demoBot">Ναι. Διαθέσιμα: ντάκος, ψητά λαχανικά, λαβράκι. Να δημιουργήσω προσφορά;</div>
           </div>
+          <div id="demo-suggestions">
+            <button type="button" class="menu-chip" data-mode-text="demoChip1">🐟 Λαβράκι €14</button>
+            <button type="button" class="menu-chip" data-mode-text="demoChip2">🥗 Ντάκος €7</button>
+            <button type="button" class="menu-chip" data-mode-text="demoChip3">🍷 Κρασί σπιτικό</button>
+          </div>
+          <form class="demo-input-row" id="demo-form">
+            <input type="text" id="demo-input" data-mode-text="demoPlaceholder" placeholder="Γράψε μια ερώτηση…" autocomplete="off">
+            <button type="submit" class="demo-send" aria-label="Αποστολή"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20 20 12 4 4l3 8-3 8Z"/></svg></button>
+          </form>
+          <div class="demo-hint" data-mode-text="demoHint">Δοκιμαστικό chat — γράψε ό,τι θα ρωτούσε ένας πελάτης.</div>
         </div>
         <div class="float-card float-1">
           <div class="ico"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v12H7l-3 3z"/></svg></div>
@@ -745,6 +781,100 @@
     });
   });
 
+  // interactive demo chat
+  const demoMessages = document.getElementById('demo-messages');
+  const demoForm = document.getElementById('demo-form');
+  const demoInput = document.getElementById('demo-input');
+  const demoSuggestions = document.getElementById('demo-suggestions');
+
+  const demoReplies = {
+    food: [
+      { k: ['κρατ','τραπεζ','ρεζερβ'], r: 'Μπορώ να κλείσω τραπέζι. Πόσα άτομα και τι ώρα σας βολεύει;' },
+      { k: ['ωραρι','ανοιχτ','κλειστ'], r: 'Είμαστε ανοιχτά καθημερινά 12:00–24:00, όλες τις μέρες.' },
+      { k: ['τιμ','κοστ','ατομα','group','ομαδ'], r: 'Για ομάδες φτιάχνω έτοιμη προσφορά με τις πραγματικές τιμές. Πόσα άτομα είστε;' },
+      { k: ['παρκιν','παρκαρ'], r: 'Υπάρχει δωρεάν πάρκινγκ ακριβώς δίπλα στο μαγαζί.' },
+      { k: ['delivery','διανομ','παραδοσ'], r: 'Κάνουμε delivery σε ακτίνα 5χλμ, συνήθως 25–35 λεπτά.' },
+      { k: ['γλουτεν','αλλεργ','χορτοφαγ','vegan'], r: 'Έχουμε επιλογές χωρίς γλουτένη και vegan. Θες να σου δείξω το μενού;' },
+      { k: ['μενου','πιατ','φαγητ'], r: 'Το πλήρες μενού είναι στη σελίδα μας. Ψάχνεις κάτι συγκεκριμένο — ψάρι, κρέας, ή κάτι ελαφρύ;' }
+    ],
+    stay: [
+      { k: ['κωδικ','πορτ','κλειδ'], r: 'Θα σου στείλω τον κωδικό πρόσβασης μόλις επιβεβαιωθεί η κράτησή σου.' },
+      { k: ['wifi','ιντερνετ','διαδικτυ'], r: 'Το δίκτυο λέγεται «VillaAegean» — ο κωδικός είναι στο σημείωμα καλωσορίσματος.' },
+      { k: ['check-in','check in','αφιξ','ωρα αφιξ'], r: 'Το check-in είναι από τις 15:00. Αν φτάσεις νωρίτερα, μπορώ να δω αν είναι διαθέσιμο το δωμάτιο.' },
+      { k: ['check-out','check out','αναχωρ'], r: 'Το check-out είναι έως τις 11:00. Θες παράταση; Θα το ελέγξω με τον υπεύθυνο.' },
+      { k: ['παρκιν','παρκαρ'], r: 'Υπάρχει ιδιωτικός χώρος στάθμευσης στο κατάλυμα, χωρίς επιπλέον χρέωση.' },
+      { k: ['βλαβ','χαλασ','προβλημ'], r: 'Λυπάμαι για την ταλαιπωρία — ειδοποιώ αμέσως τον υπεύθυνο για το πρόβλημα.' }
+    ]
+  };
+
+  const demoFallback = {
+    food: 'Καλή ερώτηση — θα την προσθέσω στη βάση γνώσης και θα απαντήσω μόλις μάθω περισσότερα.',
+    stay: 'Θα προωθήσω το ερώτημα στον υπεύθυνο του καταλύματος και θα λάβεις απάντηση σύντομα.'
+  };
+
+  const getDemoReply = (text)=>{
+    const lower = text.toLowerCase();
+    const rules = demoReplies[currentMode] || demoReplies.food;
+    for(const rule of rules){
+      if(rule.k.some(word=>lower.includes(word))) return rule.r;
+    }
+    return demoFallback[currentMode] || demoFallback.food;
+  };
+
+  const scrollDemoToBottom = ()=>{
+    demoMessages.scrollTop = demoMessages.scrollHeight;
+  };
+
+  const appendDemoBubble = (text, who)=>{
+    const div = document.createElement('div');
+    div.className = 'bubble ' + who;
+    div.textContent = text;
+    demoMessages.appendChild(div);
+    scrollDemoToBottom();
+  };
+
+  const sendDemoMessage = (text)=>{
+    const trimmed = text.trim();
+    if(!trimmed) return;
+    appendDemoBubble(trimmed, 'user');
+    demoInput.value = '';
+
+    const typing = document.createElement('div');
+    typing.className = 'bubble bot typing';
+    typing.innerHTML = '<span></span><span></span><span></span>';
+    demoMessages.appendChild(typing);
+    scrollDemoToBottom();
+
+    const runtime = typeof window !== 'undefined' ? window : globalThis;
+    const delay = runtime.setTimeout || ((fn)=>fn());
+    delay(()=>{
+      typing.remove();
+      appendDemoBubble(getDemoReply(trimmed), 'bot');
+    }, 550 + Math.random()*350);
+  };
+
+  if(demoForm){
+    demoForm.addEventListener('submit', (e)=>{
+      e.preventDefault();
+      sendDemoMessage(demoInput.value);
+    });
+  }
+  if(demoSuggestions){
+    demoSuggestions.querySelectorAll('.menu-chip').forEach(chip=>{
+      chip.addEventListener('click', ()=>{
+        sendDemoMessage(chip.textContent.trim());
+      });
+    });
+  }
+
+  const resetDemoChat = ()=>{
+    if(!demoMessages) return;
+    while(demoMessages.children.length > 2){
+      demoMessages.removeChild(demoMessages.lastChild);
+    }
+    if(demoInput) demoInput.value = '';
+  };
+
   const modeContent = {
     food: {
       title: "katina — Σύστημα διαχείρισης ροής πελάτη",
@@ -760,6 +890,8 @@
       demoChip1: "🐟 Λαβράκι €14",
       demoChip2: "🥗 Ντάκος €7",
       demoChip3: "🍷 Κρασί σπιτικό",
+      demoPlaceholder: "Γράψε μια ερώτηση…",
+      demoHint: "Δοκιμαστικό chat — γράψε ό,τι θα ρωτούσε ένας πελάτης.",
       float1Title: "+1 νέα παραγγελία",
       float1Sub: "Τραπέζι 5 · μόλις τώρα",
       float2Title: "QR έτοιμο",
@@ -852,6 +984,8 @@
       demoChip1: "🔐 Έλεγχος κράτησης",
       demoChip2: "📶 Wi-Fi οδηγίες",
       demoChip3: "🚨 Επίπεδο 3",
+      demoPlaceholder: "Γράψε μια ερώτηση επισκέπτη…",
+      demoHint: "Δοκιμαστικό chat — γράψε ό,τι θα ρωτούσε ένας επισκέπτης.",
       float1Title: "+1 κρίσιμο αίτημα",
       float1Sub: "Δωμάτιο 204 · τώρα",
       float2Title: "Access flow",
@@ -943,11 +1077,17 @@
     document.body.classList.toggle('mode-food', key !== 'stay');
     document.querySelectorAll('[data-mode-text]').forEach(el=>{
       const value = content[el.dataset.modeText];
-      if(value !== undefined) el.innerHTML = value;
+      if(value === undefined) return;
+      if(el.tagName === 'INPUT'){
+        el.setAttribute('placeholder', value);
+      } else {
+        el.innerHTML = value;
+      }
     });
     document.querySelectorAll('#audience-toggle button').forEach(btn=>{
       btn.classList.toggle('active', btn.dataset.a === key);
     });
+    if(typeof resetDemoChat === 'function') resetDemoChat();
   };
 
   const applyMode = (key)=>{
