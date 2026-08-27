@@ -45,6 +45,39 @@
     --primary-shadow:rgba(21,87,176,.45);
     --shadow:0 20px 45px -20px rgba(21,87,176,0.28);
   }
+  body.theme-dark{
+    --bg:#100F0D;
+    --bg-alt:#1C1713;
+    --bg-alt-2:#171310;
+    --ink:#FFF7ED;
+    --ink-soft:#D8C7B7;
+    --orange:#FF7A3D;
+    --orange-deep:#FFB174;
+    --orange-soft:#6A321B;
+    --teal:#57C5B6;
+    --teal-soft:#173A35;
+    --card:#181411;
+    --line:#35271F;
+    --header-bg:rgba(16,15,13,0.84);
+    --primary-shadow:rgba(255,122,61,.38);
+    --shadow:0 22px 50px -24px rgba(0,0,0,.8);
+  }
+  body.theme-dark.mode-stay{
+    --bg:#0C1018;
+    --bg-alt:#141C29;
+    --bg-alt-2:#101824;
+    --ink:#F4F8FF;
+    --ink-soft:#C4D0DE;
+    --orange:#69A7FF;
+    --orange-deep:#A7CBFF;
+    --orange-soft:#183A68;
+    --teal:#7DB7FF;
+    --teal-soft:#142B4C;
+    --line:#25364D;
+    --header-bg:rgba(12,16,24,0.84);
+    --primary-shadow:rgba(105,167,255,.34);
+    --shadow:0 22px 50px -24px rgba(0,0,0,.82);
+  }
   *{box-sizing:border-box;}
   html{scroll-behavior:smooth;}
   body{
@@ -119,6 +152,17 @@
   .nav-links a{color:var(--ink-soft);transition:color .25s var(--ease);}
   .nav-links a:hover{color:var(--orange-deep);}
   .nav-cta{display:flex;align-items:center;gap:14px;}
+  .theme-toggle{
+    width:42px;height:42px;border-radius:999px;border:1.5px solid var(--line);
+    background:var(--card);color:var(--ink);display:inline-flex;align-items:center;justify-content:center;
+    cursor:pointer;font-size:17px;line-height:1;flex-shrink:0;
+    transition:transform .25s var(--ease), background-color .35s var(--ease), color .35s var(--ease), border-color .35s var(--ease), box-shadow .35s var(--ease);
+  }
+  .theme-toggle:hover{border-color:var(--orange);color:var(--orange-deep);background:var(--bg-alt-2);box-shadow:0 10px 24px -18px rgba(0,0,0,.42);}
+  .theme-toggle:active{transform:scale(.94);}
+  .theme-toggle .sun{display:none;}
+  body.theme-dark .theme-toggle .moon{display:none;}
+  body.theme-dark .theme-toggle .sun{display:block;}
   .btn{
     display:inline-flex;align-items:center;justify-content:center;gap:8px;
     padding:13px 24px;border-radius:999px;font-weight:700;font-size:15px;
@@ -135,6 +179,7 @@
   .btn:active{transform:translateY(1px) scale(.97);}
   .btn:active::after{opacity:1;transform:scale(1);}
   .btn:focus-visible,
+  .theme-toggle:focus-visible,
   .toggle button:focus-visible,
   .faq-q:focus-visible,
   .burger:focus-visible{
@@ -160,6 +205,16 @@
     background:
       linear-gradient(90deg,var(--bg) 0%,rgba(244,250,255,.64) 28%,rgba(244,250,255,.36) 58%,rgba(244,250,255,.18) 100%),
       linear-gradient(180deg,rgba(244,250,255,.06),var(--bg) 100%);
+  }
+  body.theme-dark .hero-bg-layer::after{
+    background:
+      linear-gradient(90deg,var(--bg) 0%,rgba(16,15,13,.72) 28%,rgba(16,15,13,.5) 58%,rgba(16,15,13,.32) 100%),
+      linear-gradient(180deg,rgba(16,15,13,.12),var(--bg) 100%);
+  }
+  body.theme-dark.mode-stay .hero-bg-layer::after{
+    background:
+      linear-gradient(90deg,var(--bg) 0%,rgba(12,16,24,.72) 28%,rgba(12,16,24,.48) 58%,rgba(12,16,24,.3) 100%),
+      linear-gradient(180deg,rgba(12,16,24,.1),var(--bg) 100%);
   }
   .hero-bg{
     position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
@@ -222,6 +277,7 @@
   .bubble{border-radius:18px;padding:12px 16px;font-size:14px;margin-bottom:10px;max-width:88%;line-height:1.45;}
   .bubble.user{background:var(--bg-alt);margin-left:auto;border-bottom-right-radius:6px;color:var(--ink);transition:background-color .35s var(--ease), color .35s var(--ease);}
   .bubble.bot{background:var(--teal-soft);border-bottom-left-radius:6px;color:#0d3a34;transition:background-color .35s var(--ease);}
+  body.theme-dark .bubble.bot{color:#DDF8F4;}
   .menu-chip{display:inline-flex;align-items:center;gap:6px;background:var(--bg-alt-2);border:1px solid var(--line);padding:6px 12px;border-radius:999px;font-size:12.5px;font-weight:600;margin:2px 4px 2px 0;transition:background-color .35s var(--ease), border-color .35s var(--ease), color .35s var(--ease);}
   button.menu-chip{cursor:pointer;color:var(--ink);font-family:inherit;}
   button.menu-chip:hover{background:var(--orange-soft);border-color:var(--orange);}
@@ -298,6 +354,7 @@
   .badge{font-size:11px;font-weight:800;padding:4px 10px;border-radius:999px;letter-spacing:.02em;}
   .badge-live{background:var(--teal-soft);color:var(--teal);transition:background-color .35s var(--ease), color .35s var(--ease);}
   .badge-soon{background:#FFF1D6;color:#9A6B00;}
+  body.theme-dark .badge-soon{background:#3B2B14;color:#FFD47A;}
   .mcard-list{margin-top:14px;display:flex;flex-wrap:wrap;gap:8px;}
   .mcard-list span{font-size:12px;font-weight:600;background:var(--bg-alt-2);border:1px solid var(--line);padding:5px 11px;border-radius:999px;color:var(--ink-soft);transition:background-color .35s var(--ease), border-color .35s var(--ease), color .35s var(--ease);}
 
@@ -305,6 +362,8 @@
   .track{border-radius:var(--radius-lg);padding:40px;position:relative;overflow:hidden;transition:background .45s var(--ease), border-color .45s var(--ease);}
   .track-food{background:linear-gradient(160deg,#FFF3E8,#FFE3CC);border:1px solid var(--orange-soft);}
   .track-stay{background:linear-gradient(160deg,#E9F6F2,#D8EFE7);border:1px solid var(--teal-soft);}
+  body.theme-dark .track-food{background:linear-gradient(160deg,#261711,#3A1F13);border-color:#6A321B;}
+  body.theme-dark .track-stay{background:linear-gradient(160deg,#111C26,#172C35);border-color:#234A52;}
   .track-tag{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:800;padding:7px 14px;border-radius:999px;background:rgba(255,255,255,.7);margin-bottom:20px;}
   .track-food .track-tag{color:var(--orange-deep);}
   .track-stay .track-tag{color:var(--teal);}
@@ -491,6 +550,7 @@
       <a href="#brain">Γιατί katina</a>
     </nav>
     <div class="nav-cta">
+      <button type="button" class="theme-toggle" id="theme-toggle" aria-label="Εναλλαγή dark theme" aria-pressed="false"><span class="moon">☾</span><span class="sun">☀</span></button>
       <a href="#demo" class="btn btn-ghost btn-sm">Δες demo</a>
       <a href="#demo" class="btn btn-primary btn-sm">Δοκίμασε δωρεάν</a>
     </div>
@@ -1155,6 +1215,29 @@
       runSwap();
     }
   };
+
+  const themeToggle = document.getElementById('theme-toggle');
+  const setTheme = (theme)=>{
+    const isDark = theme === 'dark';
+    document.body.classList.toggle('theme-dark', isDark);
+    if(themeToggle) themeToggle.setAttribute('aria-pressed', String(isDark));
+  };
+
+  try{
+    setTheme(localStorage.getItem('katina-theme') || 'light');
+  }catch(err){
+    setTheme('light');
+  }
+
+  if(themeToggle){
+    themeToggle.addEventListener('click', ()=>{
+      const nextTheme = document.body.classList.contains('theme-dark') ? 'light' : 'dark';
+      setTheme(nextTheme);
+      try{
+        localStorage.setItem('katina-theme', nextTheme);
+      }catch(err){}
+    });
+  }
 
   document.querySelectorAll('#audience-toggle button').forEach(btn=>{
     btn.addEventListener('click', ()=>{
