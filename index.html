@@ -407,6 +407,8 @@
   .badge-live{background:var(--teal-soft);color:var(--teal);transition:background-color .35s var(--ease), color .35s var(--ease);}
   .badge-soon{background:#FFF1D6;color:#9A6B00;}
   body.theme-dark .badge-soon{background:#3B2B14;color:#FFD47A;}
+  body.mode-food .mod4-badge-stay{display:none;}
+  body.mode-stay .mod4-badge-food{display:none;}
   .mcard-list{margin-top:14px;display:flex;flex-wrap:wrap;gap:8px;}
   .mcard-list span{font-size:12px;font-weight:600;background:var(--bg-alt-2);border:1px solid var(--line);padding:5px 11px;border-radius:999px;color:var(--ink-soft);transition:background-color .35s var(--ease), border-color .35s var(--ease), color .35s var(--ease);}
 
@@ -755,9 +757,9 @@
 <section class="section alt" id="modules">
   <div class="wrap">
     <div class="section-head reveal">
-      <div class="eyebrow" data-mode-text="modulesEyebrow"><span class="dot">🧩</span> Τι περιλαμβάνει</div>
-      <h2 data-mode-text="modulesTitle">Βασικές λειτουργίες σε ένα σύστημα</h2>
-      <p data-mode-text="modulesLead">Δίνεις site ή φωτογραφίες μενού. Το KatinaBot δημιουργεί τα δεδομένα.</p>
+      <div class="eyebrow" data-mode-text="modulesEyebrow"><span class="dot">🧩</span> Τι κάνει</div>
+      <h2 data-mode-text="modulesTitle">6 λειτουργίες, ένα σύστημα</h2>
+      <p data-mode-text="modulesLead">Δίνεις site ή φωτό μενού. Παίρνεις όλα τα παρακάτω.</p>
     </div>
 
     <div class="modules reveal-stagger">
@@ -765,9 +767,9 @@
         <span class="badge badge-live" style="position:absolute;top:26px;right:26px;">Ζωντανό</span>
         <div class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.5 8.5 0 0 1-8.5 8.5c-1.35 0-2.62-.32-3.73-.9L3 21l1.9-5.77A8.5 8.5 0 1 1 21 11.5Z"/></svg></div>
         <h3 data-mode-text="module1Title">Ο AI βοηθός</h3>
-        <p data-mode-text="module1Text">Ενσωμάτωση στο site με μία γραμμή κώδικα. Απαντήσεις σε 50+ γλώσσες από site και αρχεία.</p>
+        <p data-mode-text="module1Text">Απαντάει σε πελάτες 24/7, σε 50+ γλώσσες. Μία γραμμή κώδικα στο site σου.</p>
         <div class="mcard-list">
-          <span data-mode-text="module1Chip1">Google Calendar</span><span data-mode-text="module1Chip2">Στατιστικά &amp; ιστορικό</span><span data-mode-text="module1Chip3">Αναπάντητες ερωτήσεις</span>
+          <span data-mode-text="module1Chip1">Κρατήσεις τραπεζιού</span><span data-mode-text="module1Chip2">Στατιστικά</span><span data-mode-text="module1Chip3">Αναπάντητες ερωτήσεις</span>
         </div>
       </div>
 
@@ -775,36 +777,39 @@
         <span class="badge badge-live" style="position:absolute;top:26px;right:26px;">Ζωντανό</span>
         <div class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v3M12 18v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M3 12h3M18 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"/><circle cx="12" cy="12" r="4"/></svg></div>
         <h3 data-mode-text="module2Title">Στήσιμο σε 1 λεπτό</h3>
-        <p data-mode-text="module2Text">Εισαγωγή link ή φωτογραφιών μενού. Αυτόματη καταγραφή ονόματος, στοιχείων, λογότυπου και τιμών.</p>
+        <p data-mode-text="module2Text">Link ή φωτό μενού. Έτοιμο demo σε 60″, χωρίς κάρτα.</p>
       </div>
 
       <div class="mcard">
         <span class="badge badge-live" style="position:absolute;top:26px;right:26px;">Ζωντανό</span>
         <div class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9.5 12 3l9 6.5V21H3z"/><path d="M9 21v-7h6v7"/></svg></div>
         <h3 data-mode-text="module3Title">Δημόσια σελίδα</h3>
-        <p data-mode-text="module3Text">Σελίδα με δικό της URL. Τρία στυλ, mobile μενού και QR ανά τραπέζι.</p>
+        <p data-mode-text="module3Text">Δικό της URL, μενού για κινητό, QR σε κάθε τραπέζι.</p>
       </div>
 
       <div class="mcard">
-        <span class="badge badge-live" style="position:absolute;top:26px;right:26px;">Ζωντανό</span>
+        <span class="badge badge-live mod4-badge-food" style="position:absolute;top:26px;right:26px;">Ζωντανό</span>
+        <span class="badge badge-soon mod4-badge-stay" style="position:absolute;top:26px;right:26px;">Σύντομα</span>
         <div class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18M3 12h18M3 18h11"/><circle cx="19" cy="18" r="2.4"/></svg></div>
         <h3 data-mode-text="module4Title">AI προσφορές</h3>
-        <p data-mode-text="module4Text">Υπολογισμός κόστους για ομάδες με πραγματικές τιμές και έτοιμη προσφορά.</p>
+        <p data-mode-text="module4Text">«Πόσο για 10 άτομα;» — έτοιμη προσφορά με πραγματικές τιμές.</p>
       </div>
 
       <div class="mcard wide">
+        <span class="badge badge-soon" style="position:absolute;top:26px;right:26px;">Σύντομα</span>
         <div class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><path d="M14 14h3v3h-3zM19 14v3M14 19h3"/></svg></div>
-        <h3 data-mode-text="module5Title">QR παραγγελία + εφαρμογή προσωπικού</h3>
-        <p data-mode-text="module5Text">Ο πελάτης σκανάρει QR και παραγγέλνει από κινητό. Το προσωπικό εγκρίνει πριν από κουζίνα ή μπαρ.</p>
+        <h3 data-mode-text="module5Title">Παραγγελία από το τραπέζι</h3>
+        <p data-mode-text="module5Text">Ο πελάτης παραγγέλνει με το κινητό. Το προσωπικό εγκρίνει πριν κουζίνα ή μπαρ.</p>
         <div class="mcard-list">
           <span data-mode-text="module5Chip1">Κλήση σερβιτόρου</span><span data-mode-text="module5Chip2">Λογαριασμός ανά άτομο</span><span data-mode-text="module5Chip3">Οθόνη κουζίνας/μπαρ</span>
         </div>
       </div>
 
       <div class="mcard teal">
+        <span class="badge badge-soon" style="position:absolute;top:26px;right:26px;">Σύντομα</span>
         <div class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-4.5-7-10a7 7 0 0 1 14 0c0 5.5-7 10-7 10Z"/><circle cx="12" cy="11" r="2.4"/></svg></div>
         <h3 data-mode-text="module6Title">Concierge για καταλύματα</h3>
-        <p data-mode-text="module6Text">Απαντάει ερωτήσεις επισκεπτών και ειδοποιεί τον υπεύθυνο μόνο όταν χρειάζεται. Δεν δίνει κωδικούς πόρτας σε αγνώστους.</p>
+        <p data-mode-text="module6Text">Το ίδιο σύστημα, φτιαγμένο και για ξενοδοχεία &amp; ενοικιαζόμενα.</p>
       </div>
     </div>
   </div>
@@ -1143,27 +1148,27 @@
       stage2Text: "Σκανάρει το QR, παραγγέλνει, καλεί σερβιτόρο. Το προσωπικό εγκρίνει, η κουζίνα βλέπει την παραγγελία.",
       stage3Title: "Μετά την επίσκεψη",
       stage3Text: "Αποστολή ευχαριστίας, αίτημα κριτικής και ειδοποίηση υπευθύνου για σφάλμα.",
-      modulesEyebrow: '<span class="dot">🧩</span> Τι περιλαμβάνει',
-      modulesTitle: "Βασικές λειτουργίες σε ένα σύστημα",
-      modulesLead: "Δίνεις site ή φωτογραφίες μενού. Το KatinaBot δημιουργεί τα δεδομένα.",
+      modulesEyebrow: '<span class="dot">🧩</span> Τι κάνει',
+      modulesTitle: "6 λειτουργίες, ένα σύστημα",
+      modulesLead: "Δίνεις site ή φωτό μενού. Παίρνεις όλα τα παρακάτω.",
       module1Title: "Ο AI βοηθός",
-      module1Text: "Ενσωμάτωση στο site με μία γραμμή κώδικα. Απαντήσεις σε 50+ γλώσσες από site και αρχεία.",
-      module1Chip1: "Google Calendar",
-      module1Chip2: "Στατιστικά & ιστορικό",
+      module1Text: "Απαντάει σε πελάτες 24/7, σε 50+ γλώσσες. Μία γραμμή κώδικα στο site σου.",
+      module1Chip1: "Κρατήσεις τραπεζιού",
+      module1Chip2: "Στατιστικά",
       module1Chip3: "Αναπάντητες ερωτήσεις",
       module2Title: "Στήσιμο σε 1 λεπτό",
-      module2Text: "Εισαγωγή link ή φωτογραφιών μενού. Αυτόματη καταγραφή ονόματος, στοιχείων, λογότυπου και τιμών.",
+      module2Text: "Link ή φωτό μενού. Έτοιμο demo σε 60″, χωρίς κάρτα.",
       module3Title: "Δημόσια σελίδα",
-      module3Text: "Σελίδα με δικό της URL. Τρία στυλ, mobile μενού και QR ανά τραπέζι.",
+      module3Text: "Δικό της URL, μενού για κινητό, QR σε κάθε τραπέζι.",
       module4Title: "AI προσφορές",
-      module4Text: "Υπολογισμός κόστους για ομάδες με πραγματικές τιμές και έτοιμη προσφορά.",
-      module5Title: "QR παραγγελία + εφαρμογή προσωπικού",
-      module5Text: "Ο πελάτης σκανάρει QR και παραγγέλνει από κινητό. Το προσωπικό εγκρίνει πριν από κουζίνα ή μπαρ.",
+      module4Text: "«Πόσο για 10 άτομα;» — έτοιμη προσφορά με πραγματικές τιμές.",
+      module5Title: "Παραγγελία από το τραπέζι",
+      module5Text: "Ο πελάτης παραγγέλνει με το κινητό. Το προσωπικό εγκρίνει πριν κουζίνα ή μπαρ.",
       module5Chip1: "Κλήση σερβιτόρου",
       module5Chip2: "Λογαριασμός ανά άτομο",
       module5Chip3: "Οθόνη κουζίνας/μπαρ",
       module6Title: "Concierge για καταλύματα",
-      module6Text: "Απαντάει ερωτήσεις επισκεπτών και ειδοποιεί τον υπεύθυνο μόνο όταν χρειάζεται. Δεν δίνει κωδικούς πόρτας σε αγνώστους.",
+      module6Text: "Το ίδιο σύστημα, φτιαγμένο και για ξενοδοχεία & ενοικιαζόμενα.",
       tracksEyebrow: '<span class="dot">🎯</span> Για ποιον είναι',
       tracksTitle: "Δύο κλάδοι, ένα σύστημα",
       tracksLead: "Η εστίαση και η φιλοξενία έχουν διαφορετικές ροές. Το KatinaBot υποστηρίζει και τις δύο.",
@@ -1224,9 +1229,9 @@
       demoChip3: "🚨 Επίπεδο 3",
       demoPlaceholder: "Γράψε μια ερώτηση επισκέπτη…",
       demoHint: "Δοκιμαστικό chat — γράψε ό,τι θα ρωτούσε ένας επισκέπτης.",
-      float1Title: "+1 κρίσιμο αίτημα ",
+      float1Title: "+1 κρίσιμο αίτημα",
       float1Sub: "Δωμάτιο 204 · τώρα",
-      float2Title: "Access flow ",
+      float2Title: "Access flow",
       float2Sub: "Με ταυτοποίηση",
       journeyEyebrow: '<span class="dot">🧭</span> Ροή διαμονής',
       journeyTitle: "Τρία στάδια φιλοξενίας",
@@ -1237,27 +1242,27 @@
       stage2Text: "Απαντήσεις για Wi-Fi, παροχές, οδηγίες και αιτήματα υποστήριξης.",
       stage3Title: "Μετά το check-out",
       stage3Text: "Οδηγίες αναχώρησης, αίτημα κριτικής και αναφορά συμβάντων.",
-      modulesEyebrow: '<span class="dot">🧩</span> Hosting features',
-      modulesTitle: "Λειτουργίες φιλοξενίας",
-      modulesLead: "Δίνεις site ή στοιχεία καταλύματος. Το KatinaBot δημιουργεί concierge βάση γνώσης.",
+      modulesEyebrow: '<span class="dot">🧩</span> Τι κάνει',
+      modulesTitle: "6 λειτουργίες, ένα σύστημα",
+      modulesLead: "Δίνεις site ή στοιχεία καταλύματος. Παίρνεις όλα τα παρακάτω.",
       module1Title: "AI concierge",
-      module1Text: "Απαντήσεις σε ερωτήσεις επισκεπτών για πρόσβαση, Wi-Fi, παροχές και κανόνες.",
+      module1Text: "Απαντάει 24/7 για πρόσβαση, Wi-Fi, παροχές και κανόνες, σε ΕΛ/ΕΝ.",
       module1Chip1: "ΕΛ/ΕΝ",
       module1Chip2: "Ιστορικό συνομιλιών",
       module1Chip3: "Αναπάντητα αιτήματα",
-      module2Title: "Setup καταλύματος",
-      module2Text: "Εισαγωγή site, αρχείων ή οδηγιών. Αυτόματη καταγραφή παροχών, κανόνων και FAQ.",
+      module2Title: "Setup σε 1 λεπτό",
+      module2Text: "Site ή αρχεία. Καταγράφει παροχές, κανόνες και FAQ μόνο του.",
       module3Title: "Σελίδα πληροφοριών",
-      module3Text: "Δημόσια σελίδα με οδηγίες άφιξης, κανόνες, παροχές και στοιχεία επικοινωνίας.",
+      module3Text: "Δική της σελίδα: οδηγίες άφιξης, κανόνες, επικοινωνία.",
       module4Title: "Ανίχνευση σοβαρότητας",
-      module4Text: "Τα αιτήματα βαθμολογούνται ανά κίνδυνο και ώρα. Τα κρίσιμα προωθούνται άμεσα.",
-      module5Title: "Αυτόματη αποστολή μηνυμάτων διαμονής",
-      module5Text: "Μηνύματα από κράτηση μέχρι αναχώρηση: άφιξη, πρόσβαση, υποστήριξη, check-out.",
+      module4Text: "Ξεχωρίζει «τι ώρα το πρωινό» από «μυρίζει γκάζι» — ειδοποιεί μόνο όταν χρειάζεται.",
+      module5Title: "Μηνύματα διαμονής",
+      module5Text: "7 αυτόματα μηνύματα, από την κράτηση μέχρι το «ευχαριστώ».",
       module5Chip1: "Πριν την άφιξη",
       module5Chip2: "Πρώτη νύχτα",
       module5Chip3: "Check-out",
-      module6Title: "Ασφαλείς κωδικοί πρόσβασης",
-      module6Text: "Ο concierge ζητά ταυτοποίηση και δεν εμφανίζει κωδικούς μέσα στη συνομιλία.",
+      module6Title: "Ασφαλείς κωδικοί",
+      module6Text: "Κωδικός πόρτας μόνο μετά από ταυτοποίηση. Ποτέ μέσα στη συνομιλία.",
       tracksEyebrow: '<span class="dot">🎯</span> Για ποιον είναι',
       tracksTitle: "Κατηγορίες καταλυμάτων",
       tracksLead: "Το hosting mode καλύπτει μικρές και μεσαίες μονάδες με περιορισμένη reception.",
@@ -1278,12 +1283,12 @@
       brainText: "Ο concierge, οι οδηγίες και οι ειδοποιήσεις χρησιμοποιούν τα ίδια δεδομένα κράτησης και καταλύματος.",
       brainCta: "Δες concierge demo",
       brainNode1Title: "AI concierge",
-      brainNode1Text: "Απαντάει με στοιχεία καταλύματος ",
-      brainNode2Title: "Στοιχεία κράτησης ",
+      brainNode1Text: "Απαντάει με στοιχεία καταλύματος",
+      brainNode2Title: "Στοιχεία κράτησης",
       brainNode2Text: "Χρησιμοποιούνται για ταυτοποίηση",
-      brainNode3Title: "Μηνύματα διαμονής ",
+      brainNode3Title: "Μηνύματα διαμονής",
       brainNode3Text: "Αποστέλλονται ανά στάδιο",
-      brainNode4Title: "Κρίσιμες ειδοποιήσεις ",
+      brainNode4Title: "Κρίσιμες ειδοποιήσεις",
       brainNode4Text: "Προώθηση σε πραγματικό χρόνο",
       faqTitle: "Hosting FAQ",
       faq1Q: "Χρειάζεται τεχνική ομάδα;",
