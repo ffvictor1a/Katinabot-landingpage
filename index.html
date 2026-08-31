@@ -388,7 +388,7 @@
   .section{padding:96px 0;}
   .section-head{max-width:640px;margin:0 auto 56px;text-align:center;}
   .section-head .eyebrow{margin-bottom:18px;}
-  .section-head h2{font-size:clamp(28px,3.4vw,42px);}
+  .section-head h2{font-size:clamp(34px,4.6vw,54px);}
   .section-head p{margin-top:16px;font-size:17px;}
   .alt{background:var(--bg-alt-2);transition:background-color .45s var(--ease);}
 
@@ -413,15 +413,54 @@
   .mcard.wide{grid-column:span 2;}
   .mcard .ico{width:48px;height:48px;border-radius:15px;background:var(--orange-soft);color:var(--orange-deep);display:flex;align-items:center;justify-content:center;margin-bottom:18px;transition:background-color .35s var(--ease), color .35s var(--ease);}
   .mcard.teal .ico{background:var(--teal-soft);color:var(--teal);}
-  .mcard h3{font-size:18.5px;margin-bottom:10px;display:flex;align-items:center;gap:10px;}
-  .mcard p{font-size:14.5px;}
+  .mcard h3{font-size:22px;font-weight:800;margin-bottom:10px;display:flex;align-items:center;gap:10px;}
+  .mcard p{font-size:15.5px;}
   .badge{font-size:11px;font-weight:800;padding:4px 10px;border-radius:999px;letter-spacing:.02em;}
   .badge-live{background:var(--teal-soft);color:var(--teal);transition:background-color .35s var(--ease), color .35s var(--ease);}
   .badge-soon{background:#FFF1D6;color:#9A6B00;}
   body.theme-dark .badge-soon{background:#3B2B14;color:#FFD47A;}
   body.mode-food .mod4-badge-stay{display:none;}
   body.mode-stay .mod4-badge-food{display:none;}
-  .mcard-list{margin-top:14px;display:flex;flex-wrap:wrap;gap:8px;}
+  .mcard-list{display:none;}
+
+  /* ---------- MANIFESTO ---------- */
+  .manifesto{padding:64px 0;}
+  .manifesto-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;text-align:center;}
+  .manifesto-item{padding:22px 18px;}
+  .manifesto-item .num{
+    font-family:'Bricolage Grotesque';font-weight:800;font-size:clamp(48px,7vw,84px);
+    background:linear-gradient(135deg,var(--orange),var(--orange-deep));-webkit-background-clip:text;background-clip:text;color:transparent;
+    line-height:1;transition:background .4s var(--ease);
+  }
+  .manifesto-item .lbl{margin-top:12px;font-size:16.5px;font-weight:700;color:var(--ink);}
+
+  /* ---------- PLAYFUL MODULE TILES ---------- */
+  .tiles{display:flex;flex-wrap:wrap;justify-content:center;gap:30px;padding:10px 0 20px;}
+  .tile{width:250px;height:225px;}
+  .tile-inner{position:relative;width:100%;height:100%;transition:transform .4s var(--ease), box-shadow .4s var(--ease);}
+  .tile-face{
+    position:relative;width:100%;height:100%;border-radius:28px;padding:26px;display:flex;flex-direction:column;justify-content:space-between;
+    box-shadow:0 20px 44px -22px rgba(43,27,16,.4);
+  }
+  .tile:nth-child(1) .tile-inner{transform:rotate(-4deg);}
+  .tile:nth-child(2) .tile-inner{transform:rotate(3deg);}
+  .tile:nth-child(3) .tile-inner{transform:rotate(-3deg);}
+  .tile:nth-child(4) .tile-inner{transform:rotate(4deg);}
+  .tile:hover .tile-inner{transform:rotate(0deg) translateY(-8px) scale(1.045);box-shadow:0 30px 55px -20px rgba(43,27,16,.5);}
+  .tile-orange .tile-face{background:linear-gradient(150deg,var(--orange),var(--orange-deep));color:#fff;}
+  .tile-cream .tile-face{background:var(--card);border:2px solid var(--orange-soft);color:var(--ink);}
+  .tile-dark .tile-face{background:linear-gradient(150deg,#3E2415,#2B1810);color:#FFF6EC;}
+  .tile-teal .tile-face{background:linear-gradient(150deg,var(--teal),#0d4a44);color:#fff;}
+  .tile-ico{font-size:34px;line-height:1;}
+  .tile-title{font-family:'Bricolage Grotesque';font-weight:800;font-size:20px;line-height:1.2;margin-bottom:8px;}
+  .tile-back-text{font-size:13.5px;line-height:1.5;font-weight:600;opacity:.92;}
+  .tile-sticker{
+    position:absolute;top:-10px;right:-10px;background:#fff;color:var(--ink);
+    font-size:10.5px;font-weight:800;padding:5px 11px;border-radius:999px;
+    box-shadow:0 8px 16px -8px rgba(0,0,0,.35);transform:rotate(8deg);z-index:2;
+  }
+  .tile-sticker.badge-soon{background:#FFF1D6;color:#9A6B00;}
+  .tile-sticker.badge-live{background:var(--teal-soft);color:var(--teal);}
   .mcard-list span{font-size:12px;font-weight:600;background:var(--bg-alt-2);border:1px solid var(--line);padding:5px 11px;border-radius:999px;color:var(--ink-soft);transition:background-color .35s var(--ease), border-color .35s var(--ease), color .35s var(--ease);}
 
   .tracks{display:grid;grid-template-columns:1fr 1fr;gap:26px;}
@@ -434,7 +473,7 @@
   .track-tag .inline-icon{width:14px;height:14px;}
   .track-food .track-tag{color:var(--orange-deep);}
   .track-stay .track-tag{color:var(--teal);}
-  .track h3{font-size:24px;margin-bottom:14px;}
+  .track h3{font-size:30px;font-weight:800;margin-bottom:14px;}
   .track ul{list-style:none;padding:0;margin:20px 0 0;display:flex;flex-direction:column;gap:12px;}
   .track li{display:flex;gap:10px;font-size:14.5px;color:var(--ink);align-items:flex-start;}
   .track li svg{width:18px;height:18px;flex-shrink:0;margin-top:2px;}
@@ -448,7 +487,7 @@
     transition:background .45s var(--ease);
   }
   .brain::before{content:"";position:absolute;width:400px;height:400px;background:radial-gradient(circle,rgba(255,106,43,.35),transparent 70%);top:-140px;right:-100px;filter:blur(10px);}
-  .brain h2{font-size:clamp(26px,3vw,34px);color:#fff;}
+  .brain h2{font-size:clamp(30px,3.6vw,42px);color:#fff;}
   .brain p{color:#E9D9C8;margin-top:18px;font-size:16px;}
   .brain-diagram{display:flex;flex-direction:column;gap:12px;position:relative;z-index:1;}
   .brain-node{
@@ -575,6 +614,14 @@
     .toggle button{flex:1;font-size:14px;padding:12px 8px;}
     .trust-row{gap:12px;font-size:12.5px;}
     .modules{grid-template-columns:1fr;}
+    .manifesto-grid{grid-template-columns:1fr;gap:30px;}
+    .manifesto{padding:44px 0;}
+    .tiles{gap:20px;}
+    .tile{width:44%;min-width:150px;height:200px;}
+    .tile-inner{transform:rotate(0deg);}
+    .tile:hover .tile-inner{transform:translateY(-4px) scale(1.02);}
+    .tile-ico{font-size:28px;}
+    .tile-title{font-size:17px;}
     .mcard.wide{grid-column:span 1;}
     .mcard{padding:24px 20px;}
     .section{padding:56px 0;}
@@ -742,6 +789,25 @@
   </div>
 </section>
 
+<section class="manifesto">
+  <div class="wrap">
+    <div class="manifesto-grid reveal-stagger">
+      <div class="manifesto-item">
+        <div class="num">1</div>
+        <div class="lbl" data-mode-text="mani1">σύστημα για όλη τη διαδρομή</div>
+      </div>
+      <div class="manifesto-item">
+        <div class="num">60″</div>
+        <div class="lbl" data-mode-text="mani2">για να στηθεί η σελίδα σου</div>
+      </div>
+      <div class="manifesto-item">
+        <div class="num">24/7</div>
+        <div class="lbl" data-mode-text="mani3">απαντάει ο AI βοηθός</div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section class="section" id="journey">
   <div class="wrap">
     <div class="section-head reveal">
@@ -773,58 +839,59 @@
   <div class="wrap">
     <div class="section-head reveal">
       <div class="eyebrow" data-mode-text="modulesEyebrow"><span class="dot"><svg class="inline-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg></span> Τι κάνει</div>
-      <h2 data-mode-text="modulesTitle">6 λειτουργίες, ένα σύστημα</h2>
-      <p data-mode-text="modulesLead">Δίνεις site ή φωτό μενού. Παίρνεις όλα τα παρακάτω.</p>
+      <h2 data-mode-text="modulesTitle">Όλα όσα χρειάζεται η ροή πελάτη</h2>
+      <p data-mode-text="modulesLead">AI απαντήσεις, webpage, προσφορές και παραγγελίες από ένα κοινό μενού.</p>
     </div>
 
-    <div class="modules reveal-stagger">
-      <div class="mcard wide">
-        <span class="badge badge-live" style="position:absolute;top:26px;right:26px;">Ζωντανό</span>
-        <div class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.5 8.5 0 0 1-8.5 8.5c-1.35 0-2.62-.32-3.73-.9L3 21l1.9-5.77A8.5 8.5 0 1 1 21 11.5Z"/></svg></div>
-        <h3 data-mode-text="module1Title">Ο AI βοηθός</h3>
-        <p data-mode-text="module1Text">Απαντάει σε πελάτες 24/7, σε 50+ γλώσσες. Μία γραμμή κώδικα στο site σου.</p>
-        <div class="mcard-list">
-          <span data-mode-text="module1Chip1">Κρατήσεις τραπεζιού</span><span data-mode-text="module1Chip2">Στατιστικά</span><span data-mode-text="module1Chip3">Αναπάντητες ερωτήσεις</span>
+    <div class="tiles reveal-stagger">
+      <div class="tile tile-orange">
+        <div class="tile-inner">
+          <div class="tile-face">
+            <div class="tile-ico">💬</div>
+            <div>
+              <div class="tile-title" data-mode-text="module1Title">Ο AI βοηθός</div>
+              <div class="tile-back-text" data-mode-text="module1Text">Απαντάει σε πελάτες 24/7, σε 50+ γλώσσες.</div>
+            </div>
+          </div>
         </div>
       </div>
 
-      <div class="mcard">
-        <span class="badge badge-live" style="position:absolute;top:26px;right:26px;">Ζωντανό</span>
-        <div class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v3M12 18v3M4.2 4.2l2.1 2.1M17.7 17.7l2.1 2.1M3 12h3M18 12h3M4.2 19.8l2.1-2.1M17.7 6.3l2.1-2.1"/><circle cx="12" cy="12" r="4"/></svg></div>
-        <h3 data-mode-text="module2Title">Στήσιμο σε 1 λεπτό</h3>
-        <p data-mode-text="module2Text">Link ή φωτό μενού. Έτοιμο demo σε 60″, χωρίς κάρτα.</p>
-      </div>
-
-      <div class="mcard">
-        <span class="badge badge-live" style="position:absolute;top:26px;right:26px;">Ζωντανό</span>
-        <div class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 9.5 12 3l9 6.5V21H3z"/><path d="M9 21v-7h6v7"/></svg></div>
-        <h3 data-mode-text="module3Title">webpage</h3>
-        <p data-mode-text="module3Text">Δικό της URL, μενού για κινητό, QR σε κάθε τραπέζι.</p>
-      </div>
-
-      <div class="mcard">
-        <span class="badge badge-live mod4-badge-food" style="position:absolute;top:26px;right:26px;">Ζωντανό</span>
-        <span class="badge badge-soon mod4-badge-stay" style="position:absolute;top:26px;right:26px;">Σύντομα</span>
-        <div class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18M3 12h18M3 18h11"/><circle cx="19" cy="18" r="2.4"/></svg></div>
-        <h3 data-mode-text="module4Title">AI προσφορές</h3>
-        <p data-mode-text="module4Text">«Πόσο για 10 άτομα;» — έτοιμη προσφορά με πραγματικές τιμές.</p>
-      </div>
-
-      <div class="mcard wide">
-        <span class="badge badge-soon" style="position:absolute;top:26px;right:26px;">Σύντομα</span>
-        <div class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><path d="M14 14h3v3h-3zM19 14v3M14 19h3"/></svg></div>
-        <h3 data-mode-text="module5Title">Παραγγελία από το τραπέζι</h3>
-        <p data-mode-text="module5Text">Ο πελάτης παραγγέλνει με το κινητό. Το προσωπικό εγκρίνει πριν κουζίνα ή μπαρ.</p>
-        <div class="mcard-list">
-          <span data-mode-text="module5Chip1">Κλήση σερβιτόρου</span><span data-mode-text="module5Chip2">Λογαριασμός ανά άτομο</span><span data-mode-text="module5Chip3">Οθόνη κουζίνας/μπαρ</span>
+      <div class="tile tile-cream">
+        <div class="tile-inner">
+          <div class="tile-face">
+            <div class="tile-ico">🖥️</div>
+            <div>
+              <div class="tile-title" data-mode-text="module3Title">webpage</div>
+              <div class="tile-back-text" data-mode-text="module3Text">Δικό της URL, μενού για κινητό, QR σε κάθε τραπέζι.</div>
+            </div>
+          </div>
         </div>
       </div>
 
-      <div class="mcard teal">
-        <span class="badge badge-soon" style="position:absolute;top:26px;right:26px;">Σύντομα</span>
-        <div class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21s-7-4.5-7-10a7 7 0 0 1 14 0c0 5.5-7 10-7 10Z"/><circle cx="12" cy="11" r="2.4"/></svg></div>
-        <h3 data-mode-text="module6Title">Concierge για καταλύματα</h3>
-        <p data-mode-text="module6Text">Το ίδιο σύστημα, φτιαγμένο και για ξενοδοχεία &amp; ενοικιαζόμενα.</p>
+      <div class="tile tile-dark">
+        <div class="tile-inner">
+          <div class="tile-face">
+            <span class="tile-sticker badge-soon mod4-badge-stay">Σύντομα</span>
+            <div class="tile-ico">💸</div>
+            <div>
+              <div class="tile-title" data-mode-text="module4Title">AI προσφορές</div>
+              <div class="tile-back-text" data-mode-text="module4Text">«Πόσο για 10 άτομα;» — έτοιμη προσφορά.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tile tile-teal">
+        <div class="tile-inner">
+          <div class="tile-face">
+            <span class="tile-sticker badge-soon">Σύντομα</span>
+            <div class="tile-ico">📱</div>
+            <div>
+              <div class="tile-title" data-mode-text="module5Title">Παραγγελία από το τραπέζι</div>
+              <div class="tile-back-text" data-mode-text="module5Text">Παραγγελία από το κινητό, έγκριση πριν την κουζίνα.</div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
@@ -841,21 +908,17 @@
       <div class="track track-food">
         <span class="track-tag" data-mode-text="track1Tag"><svg class="inline-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><path d="M7 2v9M4 2v4a3 3 0 0 0 6 0V2M7 11v11M17 2v20M14 2h6"/></svg> Εστίαση — εστιατόριο, καφέ, μπαρ, ταβέρνα</span>
         <h3 data-mode-text="track1Title">Λιγότερα σφάλματα παραγγελίας</h3>
-        <p data-mode-text="track1Text">Υψηλή κίνηση, περιορισμένο προσωπικό, τηλεφωνικές κρατήσεις και συχνές αλλαγές τιμών.</p>
         <ul>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M20 6 9 17l-5-5"/></svg><span data-mode-text="track1Item1">Ο βοηθός απαντάει 24/7 αντί για το τηλέφωνο</span></li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M20 6 9 17l-5-5"/></svg><span data-mode-text="track1Item2">Μία αλλαγή τιμής ενημερώνει όλα τα σημεία</span></li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M20 6 9 17l-5-5"/></svg><span data-mode-text="track1Item3">QR στο τραπέζι αντί για επανεκτύπωση μενού</span></li>
         </ul>
       </div>
       <div class="track track-stay">
         <span class="track-tag" data-mode-text="track2Tag"><svg class="inline-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.5V21h14V9.5"/><path d="M9 21v-6h6v6"/></svg> Φιλοξενία — ξενοδοχείο, ενοικιαζόμενα, βίλες</span>
         <h3 data-mode-text="track2Title">Αυτόματες απαντήσεις επισκεπτών</h3>
-        <p data-mode-text="track2Text">Κωδικός πόρτας, Wi-Fi και check-out απαντώνται χωρίς 24ωρη reception.</p>
         <ul>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M20 6 9 17l-5-5"/></svg><span data-mode-text="track2Item1">Επτά αυτόματα μηνύματα από την κράτηση μέχρι την αναχώρηση</span></li>
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M20 6 9 17l-5-5"/></svg><span data-mode-text="track2Item2">Άμεση ειδοποίηση για κρίσιμο αίτημα</span></li>
-          <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M20 6 9 17l-5-5"/></svg><span data-mode-text="track2Item3">Ειδοποιήσεις μόνο όταν χρειάζεται</span></li>
         </ul>
       </div>
     </div>
@@ -1137,6 +1200,9 @@
   const modeContent = {
     food: {
       title: "KatinaBot — Σύστημα διαχείρισης ροής πελάτη",
+      mani1: "σύστημα για όλη τη διαδρομή",
+      mani2: "για να στηθεί η σελίδα σου",
+      mani3: "απαντάει ο AI βοηθός",
       heroEyebrow: '<span class="dot"><svg class="inline-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.6 5.1L19 10l-5.4 1.9L12 17l-1.6-5.1L5 10l5.4-1.9L12 3Z"/><path d="M19 15l.7 2.3L22 18l-2.3.7L19 21l-.7-2.3L16 18l2.3-.7L19 15Z"/></svg></span> Σύστημα επιχείρησης — setup σε 1 λεπτό',
       heroTitle: 'Σύστημα διαχείρισης <span class="hl">ροής πελάτη<svg viewBox="0 0 300 14" fill="none"><path d="M2 10C60 2 240 2 298 10" stroke="var(--orange-soft)" stroke-width="6" stroke-linecap="round"/></svg></span> για εστίαση και φιλοξενία',
       heroLead: "AI βοηθός, webpage, mobile παραγγελία και ειδοποιήσεις με κοινά δεδομένα.",
@@ -1165,8 +1231,8 @@
       stage3Title: "Μετά την επίσκεψη",
       stage3Text: "Αποστολή ευχαριστίας, αίτημα κριτικής και ειδοποίηση υπευθύνου για σφάλμα.",
       modulesEyebrow: '<span class="dot"><svg class="inline-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg></span> Τι κάνει',
-      modulesTitle: "6 λειτουργίες, ένα σύστημα",
-      modulesLead: "Δίνεις site ή φωτό μενού. Παίρνεις όλα τα παρακάτω.",
+      modulesTitle: "Όλα όσα χρειάζεται η ροή πελάτη",
+      modulesLead: "AI απαντήσεις, webpage, προσφορές και παραγγελίες από ένα κοινό μενού.",
       module1Title: "Ο AI βοηθός",
       module1Text: "Απαντάει σε πελάτες 24/7, σε 50+ γλώσσες. Μία γραμμή κώδικα στο site σου.",
       module1Chip1: "Κρατήσεις τραπεζιού",
@@ -1231,6 +1297,9 @@
     },
     stay: {
       title: "KatinaBot — Ψηφιακός concierge για καταλύματα",
+      mani1: "σύστημα για όλη τη διαμονή",
+      mani2: "για να στηθεί ο concierge",
+      mani3: "απαντάει σε επισκέπτες",
       heroEyebrow: '<span class="dot"><svg class="inline-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l1.6 5.1L19 10l-5.4 1.9L12 17l-1.6-5.1L5 10l5.4-1.9L12 3Z"/><path d="M19 15l.7 2.3L22 18l-2.3.7L19 21l-.7-2.3L16 18l2.3-.7L19 15Z"/></svg></span> Hosting mode — setup σε 1 λεπτό',
       heroTitle: 'Ψηφιακός concierge <span class="hl">για καταλύματα<svg viewBox="0 0 300 14" fill="none"><path d="M2 10C60 2 240 2 298 10" stroke="var(--orange-soft)" stroke-width="6" stroke-linecap="round"/></svg></span>',
       heroLead: "Απαντήσεις επισκεπτών, ασφαλείς κωδικοί, μηνύματα διαμονής και κρίσιμες ειδοποιήσεις.",
@@ -1259,8 +1328,8 @@
       stage3Title: "Μετά το check-out",
       stage3Text: "Οδηγίες αναχώρησης, αίτημα κριτικής και αναφορά συμβάντων.",
       modulesEyebrow: '<span class="dot"><svg class="inline-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg></span> Τι κάνει',
-      modulesTitle: "6 λειτουργίες, ένα σύστημα",
-      modulesLead: "Δίνεις site ή στοιχεία καταλύματος. Παίρνεις όλα τα παρακάτω.",
+      modulesTitle: "Όλα όσα χρειάζεται η διαμονή",
+      modulesLead: "Concierge, σελίδα πληροφοριών, ειδοποιήσεις και ασφαλείς ροές από ένα κοινό σύστημα.",
       module1Title: "AI concierge",
       module1Text: "Απαντάει 24/7 για πρόσβαση, Wi-Fi, παροχές και κανόνες, σε ΕΛ/ΕΝ.",
       module1Chip1: "ΕΛ/ΕΝ",
