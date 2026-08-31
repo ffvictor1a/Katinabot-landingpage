@@ -425,6 +425,8 @@
 
   /* ---------- MANIFESTO ---------- */
   .manifesto{padding:64px 0;}
+  .manifesto-switch{display:flex;justify-content:center;margin:0 0 34px;}
+  .manifesto-switch .toggle{margin-top:0;}
   .manifesto-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;text-align:center;}
   .manifesto-item{padding:22px 18px;}
   .manifesto-item .num{
@@ -775,10 +777,6 @@
       </div>
 
       <div class="hero-bottom reveal in">
-        <div class="toggle" id="audience-toggle">
-          <button class="active" data-a="food"><span class="icon-label"><svg class="inline-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><path d="M7 2v9M4 2v4a3 3 0 0 0 6 0V2M7 11v11M17 2v20M14 2h6"/></svg>Εστίαση</span></button>
-          <button data-a="stay"><span class="icon-label"><svg class="inline-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.5V21h14V9.5"/><path d="M9 21v-6h6v6"/></svg>Φιλοξενία</span></button>
-        </div>
         <div class="trust-row">
           <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M20 6 9 17l-5-5"/></svg>Χωρίς κάρτα</span>
           <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M20 6 9 17l-5-5"/></svg>Demo σε 60 δευτερόλεπτα</span>
@@ -791,6 +789,12 @@
 
 <section class="manifesto">
   <div class="wrap">
+    <div class="manifesto-switch reveal in">
+      <div class="toggle" id="audience-toggle">
+        <button class="active" data-a="food"><span class="icon-label"><svg class="inline-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><path d="M7 2v9M4 2v4a3 3 0 0 0 6 0V2M7 11v11M17 2v20M14 2h6"/></svg>Εστίαση</span></button>
+        <button data-a="stay"><span class="icon-label"><svg class="inline-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.5V21h14V9.5"/><path d="M9 21v-6h6v6"/></svg>Φιλοξενία</span></button>
+      </div>
+    </div>
     <div class="manifesto-grid reveal-stagger">
       <div class="manifesto-item">
         <div class="num">1</div>
