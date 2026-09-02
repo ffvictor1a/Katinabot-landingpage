@@ -149,9 +149,8 @@
     display:block;
   }
   body.mode-swapping [data-mode-text]{
-    opacity:.18;
-    transform:translateY(8px);
-    filter:blur(2px);
+    opacity:.28;
+    filter:blur(1.5px);
   }
 
   header{
@@ -278,6 +277,9 @@
   .hero-bottom .toggle{margin-top:0;}
   .hero-bottom .trust-row{margin-top:22px;justify-content:center;}
   .hero h1{font-size:clamp(32px,3.8vw,48px);margin-top:0;}
+  .hero-top{min-height:122px;}
+  .hero-copy{min-height:285px;}
+  .hero h1{min-height:104px;max-width:760px;width:min(760px,100%);}
   .hero h1 .hl{color:var(--orange-deep);position:relative;white-space:nowrap;transition:color .35s var(--ease);}
   .hero h1 .hl svg{position:absolute;left:0;bottom:-6px;width:100%;height:14px;}
   .hero p.lead{
@@ -290,6 +292,7 @@
     transition:opacity .25s ease, background-color .35s var(--ease), color .35s var(--ease), box-shadow .35s var(--ease);
   }
   body.mode-stay .hero p.lead{background:rgba(244,250,255,.7);}
+  .hero p.lead{min-height:52px;}
   body.theme-dark .hero p.lead{
     color:var(--ink);background:rgba(16,15,13,.58);
     text-shadow:0 1px 16px rgba(0,0,0,.8);
@@ -368,6 +371,7 @@
     box-shadow:0 30px 60px -25px rgba(43,27,16,.28);padding:18px;
     transform:rotate(2deg);transition:transform .5s var(--ease), background-color .35s var(--ease), border-color .35s var(--ease), box-shadow .35s var(--ease);
   }
+  .demo-card{min-height:366px;}
   .demo-card:hover{transform:rotate(0deg) translateY(-4px);}
   .demo-top{display:flex;align-items:center;gap:10px;margin-bottom:12px;}
   .demo-avatar{width:38px;height:38px;border-radius:50%;background:linear-gradient(135deg,var(--orange),var(--orange-deep));display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;transition:background .35s var(--ease);}
@@ -423,6 +427,7 @@
 
   .section{padding:96px 0;}
   .section-head{max-width:640px;margin:0 auto 56px;text-align:center;}
+  .section-head{min-height:178px;}
   .section-head .eyebrow{margin-bottom:18px;}
   .section-head h2{font-size:clamp(34px,4.6vw,54px);}
   .section-head p{margin-top:16px;font-size:17px;}
@@ -434,6 +439,7 @@
     background:repeating-linear-gradient(90deg,var(--orange-soft) 0 10px,transparent 10px 20px);
   }
   .stage{background:var(--card);border:1px solid var(--line);border-radius:var(--radius-md);padding:30px 26px;position:relative;transition:transform .4s var(--ease), box-shadow .4s var(--ease), background-color .35s var(--ease), border-color .35s var(--ease);}
+  .stage{min-height:230px;}
   .stage:hover{transform:translateY(-6px);box-shadow:var(--shadow);}
   .stage-num{width:44px;height:44px;border-radius:14px;background:linear-gradient(135deg,var(--orange),var(--orange-deep));color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:16px;margin-bottom:18px;position:relative;z-index:1;box-shadow:0 10px 20px -8px var(--primary-shadow);transition:background .35s var(--ease), box-shadow .35s var(--ease);}
   .stage h3{font-size:19px;margin-bottom:10px;}
@@ -504,6 +510,7 @@
 
   .tracks{display:grid;grid-template-columns:1fr 1fr;gap:26px;}
   .track{border-radius:var(--radius-lg);padding:40px;position:relative;overflow:hidden;transition:background .45s var(--ease), border-color .45s var(--ease);}
+  .track{min-height:350px;}
   .track-food{background:linear-gradient(160deg,#FFF3E8,#FFE3CC);border:1px solid var(--orange-soft);}
   .track-stay{background:linear-gradient(160deg,#E9F6F2,#D8EFE7);border:1px solid var(--teal-soft);}
   body.theme-dark .track-food{background:linear-gradient(160deg,#261711,#3A1F13);border-color:#6A321B;}
@@ -525,6 +532,7 @@
     display:grid;grid-template-columns:1fr 1fr;gap:50px;align-items:center;position:relative;overflow:hidden;
     transition:background .45s var(--ease);
   }
+  .brain{min-height:420px;}
   .brain::before{content:"";position:absolute;width:400px;height:400px;background:radial-gradient(circle,rgba(255,106,43,.35),transparent 70%);top:-140px;right:-100px;filter:blur(10px);}
   .brain h2{font-size:clamp(30px,3.6vw,42px);color:#fff;}
   .brain p{color:#E9D9C8;margin-top:18px;font-size:16px;}
@@ -534,6 +542,7 @@
     border:1px solid rgba(255,255,255,.14);padding:16px 18px;border-radius:16px;
     backdrop-filter:blur(6px);transition:transform .4s var(--ease), background .4s var(--ease), border-color .35s var(--ease);
   }
+  .brain-node{min-height:72px;}
   .brain-node:hover{transform:translateX(6px);background:rgba(255,255,255,.1);}
   .brain-node .ico{width:34px;height:34px;border-radius:10px;background:var(--orange);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
   .brain-node .ico .inline-icon{width:18px;height:18px;color:#fff;}
@@ -570,6 +579,7 @@
     padding:70px 40px;position:relative;overflow:hidden;color:#fff;
     transition:background .45s var(--ease);
   }
+  .cta-final{min-height:292px;display:flex;flex-direction:column;align-items:center;justify-content:center;}
   .cta-final::after{content:"";position:absolute;inset:0;background:radial-gradient(circle at 80% 20%,rgba(255,255,255,.25),transparent 55%);}
   .cta-final h2{font-size:clamp(28px,3.6vw,40px);color:#fff;position:relative;}
   .cta-final p{color:#FFE4D2;margin-top:14px;font-size:16.5px;position:relative;}
@@ -629,13 +639,18 @@
     .hero-panels-row{grid-template-columns:1fr;gap:40px;}
     .hero{padding:44px 0 30px;}
     .hero-top{flex-direction:column;text-align:center;gap:20px;}
+    .hero-top{min-height:206px;}
+    .hero-copy{min-height:270px;}
+    .hero h1{min-height:92px;max-width:760px;}
     .hero-audience-switch{display:flex;justify-content:center;}
     .journey{grid-template-columns:1fr;}
     .journey::before{display:none;}
     .modules{grid-template-columns:1fr 1fr;}
     .mcard.wide{grid-column:span 2;}
     .tracks{grid-template-columns:1fr;}
+    .track{min-height:280px;}
     .brain{grid-template-columns:1fr;padding:40px 26px;gap:36px;}
+    .brain{min-height:500px;}
     .section{padding:68px 0;}
     body{padding-bottom:74px;}
     .mobile-cta-bar{display:block;}
@@ -645,6 +660,8 @@
     .wrap{padding:0 18px;}
     .hero{padding:36px 0 24px;}
     .hero h1{font-size:clamp(30px,8vw,40px);}
+    .hero h1{min-height:126px;}
+    .hero-copy{min-height:320px;}
     .hero p.lead{font-size:16.5px;}
     .eyebrow{font-size:15px;padding:10px 16px 10px 10px;}
     .eyebrow .dot{width:26px;height:26px;font-size:13px;}
@@ -674,14 +691,19 @@
     .mcard{padding:24px 20px;}
     .section{padding:56px 0;}
     .section-head{margin-bottom:38px;}
+    .section-head{min-height:158px;}
     .section-head h2{font-size:26px;}
     .track{padding:28px 24px;}
+    .track{min-height:318px;}
     .brain{padding:32px 20px;border-radius:24px;}
+    .brain{min-height:540px;}
     .brain h2{font-size:24px;}
     .cta-final{padding:48px 24px;border-radius:24px;}
+    .cta-final{min-height:320px;}
     .cta-final .hero-actions{flex-direction:column;width:100%;}
     .cta-final .hero-actions .btn{width:100%;}
     .demo-card{padding:18px;}
+    .demo-card{min-height:392px;}
     .faq-q{padding:18px 20px;font-size:15.5px;gap:12px;}
     .faq-a-inner{padding:0 20px 18px;font-size:14px;}
     .float-card{padding:10px 12px;}
@@ -753,8 +775,8 @@
   <div class="blob blob-2"></div>
   <div class="wrap">
     <div class="hero-grid">
-      <div class="hero-top reveal in">
-        <h1 data-mode-text="heroTitle">Σύστημα διαχείρισης
+      <div class="hero-top reveal in" data-mode-lock>
+        <h1 data-mode-text="heroTitle" data-mode-lock>Σύστημα διαχείρισης
           <span class="hl">ροής πελάτη<svg viewBox="0 0 300 14" fill="none"><path d="M2 10C60 2 240 2 298 10" stroke="var(--orange-soft)" stroke-width="6" stroke-linecap="round"/></svg></span>
           για εστίαση και φιλοξενία</h1>
         <div class="hero-audience-switch">
@@ -766,7 +788,7 @@
       </div>
 
       <div class="hero-panels-row">
-        <div class="reveal in" id="hero-copy">
+        <div class="reveal in hero-copy" id="hero-copy" data-mode-lock>
             <div class="onboard-wrap">
               <div class="onboard-annotation" aria-hidden="true">
               <span data-ui-text="onboardAnnotation">Φτιάξ' τον τώρα</span>
@@ -799,28 +821,28 @@
         </div>
 
         <div class="hero-visual reveal in" style="transition-delay:.1s">
-          <div class="demo-card">
-            <div class="demo-top">
+          <div class="demo-card" data-mode-lock>
+            <div class="demo-top" data-mode-lock>
               <div class="demo-avatar">Κ</div>
               <div>
                 <div class="demo-name" data-mode-text="demoName">AI assistant: Ταβέρνα «Στο Λιμάνι»</div>
                 <div class="demo-sub" data-mode-text="demoSub">Χρόνος απόκρισης: δευτερόλεπτα</div>
               </div>
             </div>
-            <div class="demo-messages" id="demo-messages">
+            <div class="demo-messages" id="demo-messages" data-mode-lock>
               <div class="bubble user" data-mode-text="demoUser">Έχετε κάτι χωρίς γλουτένη για 4 άτομα;</div>
               <div class="bubble bot" data-mode-text="demoBot">Ναι. Διαθέσιμα: ντάκος, ψητά λαχανικά, λαβράκι. Να δημιουργήσω προσφορά;</div>
             </div>
-            <div id="demo-suggestions">
+            <div id="demo-suggestions" data-mode-lock>
               <button type="button" class="menu-chip" data-mode-text="demoChip1"><svg class="inline-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12s4-5 10-5c4 0 8 5 8 5s-4 5-8 5c-6 0-10-5-10-5Z"/><path d="M3 12 1.5 9.5M3 12l-1.5 2.5"/><circle cx="16" cy="12" r=".7" fill="currentColor" stroke="none"/></svg> Λαβράκι €14</button>
               <button type="button" class="menu-chip" data-mode-text="demoChip2"><svg class="inline-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><path d="M5 10c5-5 12-5 14 0-5 1-8 4-9 9-4-1-6-4-5-9Z"/><path d="M10 19c1-4 4-7 9-9"/></svg> Ντάκος €7</button>
               <button type="button" class="menu-chip" data-mode-text="demoChip3"><svg class="inline-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3h8l-1 7a3 3 0 0 1-6 0L8 3Z"/><path d="M12 13v7M9 21h6"/></svg> Κρασί σπιτικό</button>
             </div>
-            <form class="demo-input-row" id="demo-form">
+            <form class="demo-input-row" id="demo-form" data-mode-lock>
               <input type="text" id="demo-input" data-mode-text="demoPlaceholder" placeholder="Γράψε μια ερώτηση…" autocomplete="off">
               <button type="submit" class="demo-send" data-ui-text="demoSendLabel" data-ui-attr="aria-label" aria-label="Αποστολή"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20 20 12 4 4l3 8-3 8Z"/></svg></button>
             </form>
-            <div class="demo-hint" data-mode-text="demoHint">Δοκιμαστικό chat — γράψε ό,τι θα ρωτούσε ένας πελάτης.</div>
+            <div class="demo-hint" data-mode-text="demoHint" data-mode-lock>Δοκιμαστικό chat — γράψε ό,τι θα ρωτούσε ένας πελάτης.</div>
           </div>
           <div class="float-card float-1">
             <div class="ico"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.3" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h16v12H7l-3 3z"/></svg></div>
@@ -865,23 +887,23 @@
 
 <section class="section" id="journey">
   <div class="wrap">
-    <div class="section-head reveal">
+    <div class="section-head reveal" data-mode-lock>
       <div class="eyebrow" data-mode-text="journeyEyebrow"><span class="dot"><svg class="inline-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="m15 9-2 5-5 2 2-5 5-2Z"/></svg></span> Ροή πελάτη</div>
       <h2 data-mode-text="journeyTitle">Τρία στάδια λειτουργίας</h2>
       <p data-mode-text="journeyLead">Κρατήσεις, chat και παραγγελίες είναι συνήθως τρία ξεχωριστά εργαλεία. Το KatinaBot τα καλύπτει με τα ίδια δεδομένα.</p>
     </div>
     <div class="journey reveal-stagger">
-      <div class="stage">
+      <div class="stage" data-mode-lock>
         <div class="stage-num">1</div>
         <h3 data-mode-text="stage1Title">Πριν την επίσκεψη</h3>
         <p data-mode-text="stage1Text">Ρωτάει τον AI assistant, βλέπει το μενού, κλείνει τραπέζι ή δωμάτιο χωρίς τηλέφωνο.</p>
       </div>
-      <div class="stage">
+      <div class="stage" data-mode-lock>
         <div class="stage-num">2</div>
         <h3 data-mode-text="stage2Title">Κατά την επίσκεψη</h3>
         <p data-mode-text="stage2Text">Σκανάρει το QR, παραγγέλνει, καλεί σερβιτόρο. Το προσωπικό εγκρίνει, η κουζίνα βλέπει την παραγγελία.</p>
       </div>
-      <div class="stage">
+      <div class="stage" data-mode-lock>
         <div class="stage-num">3</div>
         <h3 data-mode-text="stage3Title">Μετά την επίσκεψη</h3>
         <p data-mode-text="stage3Text">Αποστολή ευχαριστίας, αίτημα κριτικής και ειδοποίηση υπευθύνου για σφάλμα.</p>
@@ -892,7 +914,7 @@
 
 <section class="section alt" id="modules">
   <div class="wrap">
-    <div class="section-head reveal">
+    <div class="section-head reveal" data-mode-lock>
       <div class="eyebrow" data-mode-text="modulesEyebrow"><span class="dot"><svg class="inline-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg></span> Τι κάνει</div>
       <h2 data-mode-text="modulesTitle">Όλα όσα χρειάζεται η ροή πελάτη</h2>
       <p data-mode-text="modulesLead">AI απαντήσεις, webpage, προσφορές και παραγγελίες από ένα κοινό μενού.</p>
@@ -901,7 +923,7 @@
     <div class="tiles reveal-stagger">
       <div class="tile tile-orange">
         <div class="tile-inner">
-          <div class="tile-face">
+          <div class="tile-face" data-mode-lock>
             <div class="tile-ico">💬</div>
             <div>
               <div class="tile-title" data-mode-text="module1Title">Ο AI assistant</div>
@@ -913,7 +935,7 @@
 
       <div class="tile tile-cream">
         <div class="tile-inner">
-          <div class="tile-face">
+          <div class="tile-face" data-mode-lock>
             <div class="tile-ico">🖥️</div>
             <div>
               <div class="tile-title" data-mode-text="module3Title">webpage</div>
@@ -925,7 +947,7 @@
 
       <div class="tile tile-dark">
         <div class="tile-inner">
-          <div class="tile-face">
+          <div class="tile-face" data-mode-lock>
             <span class="tile-sticker badge-soon mod4-badge-stay" data-ui-text="badgeSoon">Σύντομα</span>
             <div class="tile-ico">💸</div>
             <div>
@@ -938,7 +960,7 @@
 
       <div class="tile tile-teal">
         <div class="tile-inner">
-          <div class="tile-face">
+          <div class="tile-face" data-mode-lock>
             <span class="tile-sticker badge-soon" data-ui-text="badgeSoon">Σύντομα</span>
             <div class="tile-ico">📱</div>
             <div>
@@ -954,13 +976,13 @@
 
 <section class="section" id="tracks">
   <div class="wrap">
-    <div class="section-head reveal">
+    <div class="section-head reveal" data-mode-lock>
       <div class="eyebrow" data-mode-text="tracksEyebrow"><span class="dot"><svg class="inline-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="4"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/></svg></span> Για ποιον είναι</div>
       <h2 data-mode-text="tracksTitle">Δύο κλάδοι, ένα σύστημα</h2>
       <p data-mode-text="tracksLead">Η εστίαση και η φιλοξενία έχουν διαφορετικές ροές. Το KatinaBot υποστηρίζει και τις δύο.</p>
     </div>
     <div class="tracks reveal-stagger">
-      <div class="track track-food">
+      <div class="track track-food" data-mode-lock>
         <span class="track-tag" data-mode-text="track1Tag"><svg class="inline-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><path d="M7 2v9M4 2v4a3 3 0 0 0 6 0V2M7 11v11M17 2v20M14 2h6"/></svg> Εστίαση — εστιατόριο, καφέ, μπαρ, ταβέρνα</span>
         <h3 data-mode-text="track1Title">Λιγότερα σφάλματα παραγγελίας</h3>
         <ul>
@@ -968,7 +990,7 @@
           <li><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M20 6 9 17l-5-5"/></svg><span data-mode-text="track1Item2">Μία αλλαγή τιμής ενημερώνει όλα τα σημεία</span></li>
         </ul>
       </div>
-      <div class="track track-stay">
+      <div class="track track-stay" data-mode-lock>
         <span class="track-tag" data-mode-text="track2Tag"><svg class="inline-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.5V21h14V9.5"/><path d="M9 21v-6h6v6"/></svg> Φιλοξενία — ξενοδοχείο, ενοικιαζόμενα, βίλες</span>
         <h3 data-mode-text="track2Title">Αυτόματες απαντήσεις επισκεπτών</h3>
         <ul>
@@ -982,8 +1004,8 @@
 
 <section class="section alt" id="brain">
   <div class="wrap">
-    <div class="brain reveal">
-      <div>
+    <div class="brain reveal" data-mode-lock>
+      <div class="brain-copy" data-mode-lock>
         <div class="eyebrow" style="background:rgba(255,255,255,.08);border-color:rgba(255,255,255,.16);color:#FFD9BC;">
           <span class="dot"><svg class="inline-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 15.5a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7Z"/><path d="M19.4 15a1.8 1.8 0 0 0 .36 1.98l.05.05a2 2 0 1 1-2.83 2.83l-.05-.05a1.8 1.8 0 0 0-1.98-.36 1.8 1.8 0 0 0-1.1 1.65V21a2 2 0 1 1-4 0v-.08a1.8 1.8 0 0 0-1.1-1.65 1.8 1.8 0 0 0-1.98.36l-.05.05a2 2 0 1 1-2.83-2.83l.05-.05A1.8 1.8 0 0 0 4.6 15a1.8 1.8 0 0 0-1.65-1.1H3a2 2 0 1 1 0-4h.08a1.8 1.8 0 0 0 1.65-1.1 1.8 1.8 0 0 0-.36-1.98l-.05-.05a2 2 0 1 1 2.83-2.83l.05.05a1.8 1.8 0 0 0 1.98.36 1.8 1.8 0 0 0 1.1-1.65V3a2 2 0 1 1 4 0v.08a1.8 1.8 0 0 0 1.1 1.65 1.8 1.8 0 0 0 1.98-.36l.05-.05a2 2 0 1 1 2.83 2.83l-.05.05a1.8 1.8 0 0 0-.36 1.98 1.8 1.8 0 0 0 1.65 1.1H21a2 2 0 1 1 0 4h-.08A1.8 1.8 0 0 0 19.4 15Z"/></svg></span> <span data-mode-text="brainEyebrow">Τι μας ξεχωρίζει</span>
         </div>
@@ -992,10 +1014,10 @@
         <a href="#demo" class="btn btn-primary" style="margin-top:28px;" data-mode-text="brainCta">Δες demo</a>
       </div>
       <div class="brain-diagram">
-        <div class="brain-node"><div class="ico"><svg class="inline-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.5 8.5 0 0 1-8.5 8.5c-1.35 0-2.62-.32-3.73-.9L3 21l1.9-5.77A8.5 8.5 0 1 1 21 11.5Z"/></svg></div><div><div class="tt" data-mode-text="brainNode1Title">AI assistant</div><div class="ts" data-mode-text="brainNode1Text">Απαντάει με το πραγματικό μενού</div></div></div>
-        <div class="brain-node"><div class="ico"><svg class="inline-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="11" rx="2"/><path d="M8 20h8M12 15v5"/></svg></div><div><div class="tt" data-mode-text="brainNode2Title">webpage</div><div class="ts" data-mode-text="brainNode2Text">Δείχνει τις ίδιες τιμές</div></div></div>
-        <div class="brain-node"><div class="ico"><svg class="inline-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="2" width="10" height="20" rx="2"/><path d="M11 18h2"/></svg></div><div><div class="tt" data-mode-text="brainNode3Title">Παραγγελία από QR</div><div class="ts" data-mode-text="brainNode3Text">Παραγγέλνει από το ίδιο μενού</div></div></div>
-        <div class="brain-node"><div class="ico"><svg class="inline-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9Z"/><path d="M10 21h4"/></svg></div><div><div class="tt" data-mode-text="brainNode4Title">Ειδοποιήσεις</div><div class="ts" data-mode-text="brainNode4Text">Ενημέρωση σε πραγματικό χρόνο</div></div></div>
+        <div class="brain-node" data-mode-lock><div class="ico"><svg class="inline-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.5 8.5 0 0 1-8.5 8.5c-1.35 0-2.62-.32-3.73-.9L3 21l1.9-5.77A8.5 8.5 0 1 1 21 11.5Z"/></svg></div><div><div class="tt" data-mode-text="brainNode1Title">AI assistant</div><div class="ts" data-mode-text="brainNode1Text">Απαντάει με το πραγματικό μενού</div></div></div>
+        <div class="brain-node" data-mode-lock><div class="ico"><svg class="inline-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="4" width="16" height="11" rx="2"/><path d="M8 20h8M12 15v5"/></svg></div><div><div class="tt" data-mode-text="brainNode2Title">webpage</div><div class="ts" data-mode-text="brainNode2Text">Δείχνει τις ίδιες τιμές</div></div></div>
+        <div class="brain-node" data-mode-lock><div class="ico"><svg class="inline-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><rect x="7" y="2" width="10" height="20" rx="2"/><path d="M11 18h2"/></svg></div><div><div class="tt" data-mode-text="brainNode3Title">Παραγγελία από QR</div><div class="ts" data-mode-text="brainNode3Text">Παραγγέλνει από το ίδιο μενού</div></div></div>
+        <div class="brain-node" data-mode-lock><div class="ico"><svg class="inline-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8a6 6 0 0 0-12 0c0 7-3 7-3 9h18c0-2-3-2-3-9Z"/><path d="M10 21h4"/></svg></div><div><div class="tt" data-mode-text="brainNode4Title">Ειδοποιήσεις</div><div class="ts" data-mode-text="brainNode4Text">Ενημέρωση σε πραγματικό χρόνο</div></div></div>
       </div>
     </div>
   </div>
@@ -1003,7 +1025,7 @@
 
 <section class="section" id="faq">
   <div class="wrap">
-    <div class="section-head reveal">
+    <div class="section-head reveal" data-mode-lock>
       <div class="eyebrow"><span class="dot"><svg class="inline-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M9.5 9a2.6 2.6 0 0 1 5 1c0 2-2.5 2.2-2.5 4"/><path d="M12 17h.01"/></svg></span> <span data-ui-text="faqEyebrow">Συχνές ερωτήσεις</span></div>
       <h2 data-mode-text="faqTitle">Βασικές απαντήσεις</h2>
     </div>
@@ -1034,7 +1056,7 @@
 
 <section class="section" id="demo">
   <div class="wrap">
-    <div class="cta-final reveal">
+    <div class="cta-final reveal" data-mode-lock>
       <h2 data-mode-text="ctaTitle">Δημιουργία σελίδας από site σε 60 δευτερόλεπτα</h2>
       <p data-mode-text="ctaText">Χωρίς λογαριασμό, χωρίς κάρτα. Το demo κρατάει 7 μέρες.</p>
       <div class="hero-actions">
@@ -1744,14 +1766,10 @@
   let currentLang = 'el';
   let pendingMode = currentMode;
   let modeSwapTimer;
+  let layoutLockFrame;
 
-  const setModeContent = (key)=>{
-    const contentMap = languageContent[currentLang] || languageContent.el;
-    const content = contentMap[key] || contentMap.food;
-    document.title = content.title;
-    document.body.classList.toggle('mode-stay', key === 'stay');
-    document.body.classList.toggle('mode-food', key !== 'stay');
-    document.querySelectorAll('[data-mode-text]').forEach(el=>{
+  const applyModeTextToRoot = (root, content)=>{
+    const applyValue = (el)=>{
       const value = content[el.dataset.modeText];
       if(value === undefined) return;
       if(el.tagName === 'INPUT'){
@@ -1759,11 +1777,80 @@
       } else {
         el.innerHTML = value;
       }
+    };
+    if(root.matches && root.matches('[data-mode-text]')) applyValue(root);
+    root.querySelectorAll('[data-mode-text]').forEach(applyValue);
+  };
+
+  const measureLockedModeHeight = (el, content)=>{
+    const rect = el.getBoundingClientRect();
+    if(rect.width <= 0) return Math.ceil(rect.height);
+
+    const clone = el.cloneNode(true);
+    clone.querySelectorAll('[data-mode-lock]').forEach(node=>{
+      node.style.minHeight = '0px';
+      node.style.height = 'auto';
     });
+    clone.style.position = 'absolute';
+    clone.style.left = '-10000px';
+    clone.style.right = 'auto';
+    clone.style.top = '0';
+    clone.style.bottom = 'auto';
+    clone.style.width = Math.ceil(rect.width) + 'px';
+    clone.style.minHeight = '0px';
+    clone.style.height = 'auto';
+    clone.style.maxHeight = 'none';
+    clone.style.visibility = 'hidden';
+    clone.style.pointerEvents = 'none';
+    clone.style.transition = 'none';
+    clone.style.animation = 'none';
+    applyModeTextToRoot(clone, content);
+    const host = el.parentElement || document.body;
+    host.appendChild(clone);
+    const height = Math.ceil(clone.getBoundingClientRect().height);
+    clone.remove();
+    return height;
+  };
+
+  const syncModeLayoutLocks = ()=>{
+    if(typeof document === 'undefined') return;
+    const contentMap = languageContent[currentLang] || languageContent.el;
+    const modes = ['food', 'stay'].filter(mode=>contentMap[mode]);
+    const locked = Array.from(document.querySelectorAll('[data-mode-lock]'));
+    locked.forEach(el=>{
+      el.style.minHeight = '';
+    });
+    locked.forEach(el=>{
+      const currentHeight = Math.ceil(el.getBoundingClientRect().height);
+      const maxHeight = modes.reduce((max, mode)=>{
+        return Math.max(max, measureLockedModeHeight(el, contentMap[mode]));
+      }, currentHeight);
+      if(maxHeight > 0) el.style.minHeight = maxHeight + 'px';
+    });
+  };
+
+  const scheduleModeLayoutLocks = ()=>{
+    const runtime = typeof window !== 'undefined' ? window : globalThis;
+    if(runtime.cancelAnimationFrame && layoutLockFrame) runtime.cancelAnimationFrame(layoutLockFrame);
+    if(runtime.requestAnimationFrame){
+      layoutLockFrame = runtime.requestAnimationFrame(syncModeLayoutLocks);
+    } else {
+      syncModeLayoutLocks();
+    }
+  };
+
+  const setModeContent = (key)=>{
+    const contentMap = languageContent[currentLang] || languageContent.el;
+    const content = contentMap[key] || contentMap.food;
+    document.title = content.title;
+    document.body.classList.toggle('mode-stay', key === 'stay');
+    document.body.classList.toggle('mode-food', key !== 'stay');
+    applyModeTextToRoot(document, content);
     document.querySelectorAll('#audience-toggle button').forEach(btn=>{
       btn.classList.toggle('active', btn.dataset.a === key);
     });
     if(typeof resetDemoChat === 'function') resetDemoChat();
+    scheduleModeLayoutLocks();
   };
 
   const setUiContent = ()=>{
@@ -1791,6 +1878,7 @@
   const setLanguage = (lang)=>{
     currentLang = lang === 'en' ? 'en' : 'el';
     setUiContent();
+    syncModeLayoutLocks();
     setModeContent(currentMode);
     try{
       localStorage.setItem('KatinaBot-lang', currentLang);
@@ -1805,6 +1893,7 @@
     pendingMode = nextMode;
     const runtime = typeof window !== 'undefined' ? window : globalThis;
     if(runtime.clearTimeout) runtime.clearTimeout(modeSwapTimer);
+    syncModeLayoutLocks();
     document.body.classList.add('mode-swapping');
 
     const runSwap = ()=>{
@@ -1872,6 +1961,13 @@
       applyMode(btn.dataset.a);
     });
   });
+
+  if(typeof window !== 'undefined'){
+    window.addEventListener('resize', scheduleModeLayoutLocks);
+    if(document.fonts && document.fonts.ready){
+      document.fonts.ready.then(scheduleModeLayoutLocks);
+    }
+  }
 </script>
 
 </body>
