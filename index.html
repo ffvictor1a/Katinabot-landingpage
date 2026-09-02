@@ -169,6 +169,15 @@
   .nav-links a{color:var(--ink-soft);transition:color .25s var(--ease);}
   .nav-links a:hover{color:var(--orange-deep);}
   .nav-cta{display:flex;align-items:center;gap:14px;}
+  .nav-audience-switch{
+    width:0;opacity:0;transform:translateY(-6px) scale(.96);
+    pointer-events:none;overflow:hidden;flex-shrink:0;
+    transition:width .35s var(--ease), opacity .25s var(--ease), transform .35s var(--ease);
+  }
+  body.nav-mode-visible .nav-audience-switch{
+    width:226px;opacity:1;transform:translateY(0) scale(1);pointer-events:auto;
+  }
+  body.nav-mode-visible .nav-cta .btn-sm{display:none;}
   .theme-toggle{
     width:42px;height:42px;border-radius:999px;border:1.5px solid var(--line);
     background:var(--card);color:var(--ink);display:inline-flex;align-items:center;justify-content:center;
@@ -364,6 +373,9 @@
   .toggle button:active{transform:scale(.96);}
   .toggle button:active::after{opacity:.55;transform:scale(1);}
   .toggle button.active{background:var(--card);color:var(--orange-deep);box-shadow:0 8px 18px -10px rgba(0,0,0,.18);}
+  .nav-audience-switch .toggle{margin-top:0;padding:4px;gap:4px;width:100%;box-shadow:none;background:var(--card);}
+  .nav-audience-switch .toggle button{padding:8px 12px;font-size:12.5px;min-width:92px;}
+  .nav-audience-switch .inline-icon{width:14px;height:14px;}
 
   .hero-visual{position:relative;padding:74px 0;}
   .demo-card{
@@ -636,6 +648,8 @@
     .nav-links{display:none;}
     .burger{display:flex;}
     .mobile-menu{display:flex;}
+    body.nav-mode-visible .nav-audience-switch{width:210px;}
+    .nav-audience-switch .toggle button{min-width:82px;padding:8px 10px;font-size:12px;}
     .hero-panels-row{grid-template-columns:1fr;gap:40px;}
     .hero{padding:44px 0 30px;}
     .hero-top{flex-direction:column;text-align:center;gap:20px;}
@@ -658,6 +672,13 @@
 
   @media (max-width:680px){
     .wrap{padding:0 18px;}
+    .nav{padding:14px 18px;}
+    .nav-cta{gap:10px;}
+    body.nav-mode-visible .logo-word,
+    body.nav-mode-visible .nav-cta .language-toggle{display:none;}
+    body.nav-mode-visible .nav-audience-switch{width:176px;}
+    .nav-audience-switch .toggle button{min-width:70px;padding:8px 7px;font-size:11.5px;}
+    .nav-audience-switch .icon-label{gap:5px;}
     .hero{padding:36px 0 24px;}
     .hero h1{font-size:clamp(30px,8vw,40px);}
     .hero h1{min-height:126px;}
@@ -720,6 +741,8 @@
     .demo-card{transform:none;}
     .nav{padding:14px 18px;}
     .logo{font-size:19px;}
+    body.nav-mode-visible .nav-audience-switch{width:156px;}
+    .nav-audience-switch .inline-icon{display:none;}
     .stage,.mcard{border-radius:18px;}
   }
 
@@ -741,6 +764,12 @@
       <a href="#brain" data-ui-text="navBrain">Γιατί KatinaBot</a>
     </nav>
     <div class="nav-cta">
+      <div class="nav-audience-switch" data-nav-audience-switch aria-hidden="true">
+        <div class="toggle toggle-compact" data-audience-toggle aria-label="Εναλλαγή κλάδου">
+          <button class="active" data-a="food"><span class="icon-label"><svg class="inline-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><path d="M7 2v9M4 2v4a3 3 0 0 0 6 0V2M7 11v11M17 2v20M14 2h6"/></svg><span data-ui-text="audienceFood">Εστίαση</span></span></button>
+          <button data-a="stay"><span class="icon-label"><svg class="inline-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.5V21h14V9.5"/><path d="M9 21v-6h6v6"/></svg><span data-ui-text="audienceStay">Φιλοξενία</span></span></button>
+        </div>
+      </div>
       <button type="button" class="theme-toggle" id="theme-toggle" data-ui-text="themeLabel" data-ui-attr="aria-label" aria-label="Εναλλαγή dark theme" aria-pressed="false"><span class="moon"><svg class="inline-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M20.5 14.5A8.5 8.5 0 0 1 9.5 3.5 7 7 0 1 0 20.5 14.5Z"/></svg></span><span class="sun"><svg class="inline-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg></span></button>
       <button type="button" class="language-toggle" id="language-toggle" data-language-toggle aria-label="Switch page to English" aria-pressed="false">EN</button>
       <a href="#demo" class="btn btn-ghost btn-sm" data-ui-text="navDemo">Δες demo</a>
@@ -780,7 +809,7 @@
           <span class="hl">ροής πελάτη<svg viewBox="0 0 300 14" fill="none"><path d="M2 10C60 2 240 2 298 10" stroke="var(--orange-soft)" stroke-width="6" stroke-linecap="round"/></svg></span>
           για εστίαση και φιλοξενία</h1>
         <div class="hero-audience-switch">
-          <div class="toggle" id="audience-toggle">
+          <div class="toggle" id="audience-toggle" data-audience-toggle>
             <button class="active" data-a="food"><span class="icon-label"><svg class="inline-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><path d="M7 2v9M4 2v4a3 3 0 0 0 6 0V2M7 11v11M17 2v20M14 2h6"/></svg><span data-ui-text="audienceFood">Εστίαση</span></span></button>
             <button data-a="stay"><span class="icon-label"><svg class="inline-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round"><path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.5V21h14V9.5"/><path d="M9 21v-6h6v6"/></svg><span data-ui-text="audienceStay">Φιλοξενία</span></span></button>
           </div>
@@ -1846,7 +1875,7 @@
     document.body.classList.toggle('mode-stay', key === 'stay');
     document.body.classList.toggle('mode-food', key !== 'stay');
     applyModeTextToRoot(document, content);
-    document.querySelectorAll('#audience-toggle button').forEach(btn=>{
+    document.querySelectorAll('[data-audience-toggle] button').forEach(btn=>{
       btn.classList.toggle('active', btn.dataset.a === key);
     });
     if(typeof resetDemoChat === 'function') resetDemoChat();
@@ -1921,6 +1950,42 @@
     }
   };
 
+  const navAudienceSwitch = document.querySelector('[data-nav-audience-switch]');
+  const heroAudienceSwitch = document.querySelector('.hero-audience-switch');
+  const setNavbarAudienceVisible = (visible)=>{
+    document.body.classList.toggle('nav-mode-visible', visible);
+    if(navAudienceSwitch){
+      navAudienceSwitch.setAttribute('aria-hidden', visible ? 'false' : 'true');
+      navAudienceSwitch.querySelectorAll('button').forEach(btn=>{
+        btn.tabIndex = visible ? 0 : -1;
+      });
+    }
+  };
+  const syncNavbarAudienceSwitch = ()=>{
+    if(!heroAudienceSwitch){
+      setNavbarAudienceVisible(false);
+      return;
+    }
+    const rect = heroAudienceSwitch.getBoundingClientRect();
+    setNavbarAudienceVisible(rect.bottom < 12);
+  };
+
+  setNavbarAudienceVisible(false);
+
+  if(typeof window !== 'undefined' && heroAudienceSwitch){
+    if('IntersectionObserver' in window){
+      const audienceObserver = new IntersectionObserver((entries)=>{
+        const entry = entries[0];
+        setNavbarAudienceVisible(!entry.isIntersecting && window.scrollY > 40);
+      }, {rootMargin:'-80px 0px 0px 0px', threshold:0});
+      audienceObserver.observe(heroAudienceSwitch);
+    } else {
+      window.addEventListener('scroll', syncNavbarAudienceSwitch, {passive:true});
+      syncNavbarAudienceSwitch();
+    }
+    window.addEventListener('resize', syncNavbarAudienceSwitch);
+  }
+
   const themeToggle = document.getElementById('theme-toggle');
   const setTheme = (theme)=>{
     const isDark = theme === 'dark';
@@ -1956,7 +2021,7 @@
     });
   });
 
-  document.querySelectorAll('#audience-toggle button').forEach(btn=>{
+  document.querySelectorAll('[data-audience-toggle] button').forEach(btn=>{
     btn.addEventListener('click', ()=>{
       applyMode(btn.dataset.a);
     });
