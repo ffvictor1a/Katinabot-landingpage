@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="el">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>KatinaBot - Όροι χρήσης</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:wght@500;700;800&family=Plus+Jakarta+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{--bg:#FFFBF5;--bg-alt:#FFF6EC;--ink:#2B1B10;--ink-soft:#6E5A49;--orange:#FF6A2B;--orange-deep:#E24E10;--orange-soft:#FFDCC0;--line:#F3DDC3;--card:#fff;--shadow:0 20px 45px -24px rgba(226,78,16,.3);--ease:cubic-bezier(.16,1,.3,1);}
+  *{box-sizing:border-box;}
+  body{margin:0;background:linear-gradient(180deg,var(--bg) 0%,var(--bg-alt) 100%);color:var(--ink);font-family:'Plus Jakarta Sans',system-ui,sans-serif;-webkit-font-smoothing:antialiased;}
+  a{color:inherit;text-decoration:none;}
+  .wrap{width:min(980px,100%);margin:0 auto;padding:28px;}
+  header{display:flex;align-items:center;justify-content:space-between;gap:18px;margin-bottom:56px;}
+  .logo{font-family:'Bricolage Grotesque',system-ui,sans-serif;font-size:24px;font-weight:800;letter-spacing:0;}
+  .actions{display:flex;align-items:center;gap:12px;flex-wrap:wrap;justify-content:flex-end;}
+  .btn{border:1px solid var(--line);background:var(--card);color:var(--ink);border-radius:999px;padding:11px 18px;font-size:14px;font-weight:800;cursor:pointer;box-shadow:0 12px 26px -22px rgba(43,27,16,.38);transition:transform .22s var(--ease),border-color .25s var(--ease),color .25s var(--ease);}
+  .btn:hover{border-color:var(--orange);color:var(--orange-deep);}
+  .btn:active{transform:scale(.97);}
+  main{background:rgba(255,255,255,.72);border:1px solid var(--line);border-radius:28px;padding:clamp(28px,5vw,58px);box-shadow:var(--shadow);}
+  .eyebrow{display:inline-flex;align-items:center;background:var(--orange-soft);color:var(--orange-deep);border-radius:999px;padding:8px 12px;font-weight:800;font-size:13px;}
+  h1,h2{font-family:'Bricolage Grotesque',system-ui,sans-serif;margin:0;color:var(--ink);letter-spacing:0;}
+  h1{font-size:clamp(36px,6vw,64px);line-height:.98;margin-top:18px;}
+  .intro{font-size:18px;line-height:1.65;color:var(--ink-soft);max-width:760px;margin-top:18px;}
+  .updated{display:inline-flex;margin-top:18px;color:var(--orange-deep);font-weight:800;font-size:13px;}
+  .legal-list{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 34px;margin-top:36px;}
+  section.item{border-top:1px solid var(--line);padding:22px 0;}
+  h2{font-size:20px;line-height:1.25;margin-bottom:9px;}
+  p{margin:0;color:var(--ink-soft);line-height:1.65;font-size:15px;}
+  [data-lang-panel]{display:none;}
+  [data-lang-panel].active{display:block;}
+  footer{padding:28px 0 0;color:var(--ink-soft);font-size:13px;}
+  @media(max-width:720px){.wrap{padding:20px;}header{align-items:flex-start;flex-direction:column;margin-bottom:34px;}.actions{justify-content:flex-start;}main{border-radius:22px;}.legal-list{grid-template-columns:1fr;}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <a href="index.html" class="logo">KatinaBot</a>
+    <div class="actions">
+      <a href="index.html" class="btn" data-el="Πίσω στην αρχική" data-en="Back to home">Πίσω στην αρχική</a>
+      <button type="button" class="btn" id="lang-toggle" aria-label="Switch page to English">EN</button>
+    </div>
+  </header>
+
+  <main>
+    <article data-lang-panel="el" class="active">
+      <span class="eyebrow">Νομικά</span>
+      <h1>Όροι χρήσης</h1>
+      <p class="intro">Οι όροι εξηγούν πώς χρησιμοποιείται το KatinaBot, ποιες ευθύνες έχει κάθε λογαριασμός και πώς χειριζόμαστε πληρωμές, δεδομένα, ασφάλεια, συνδέσεις και διαφορές.</p>
+      <div class="updated">Τελευταία ενημέρωση: 20 Φεβρουαρίου 2026</div>
+      <div class="legal-list">
+        <section class="item"><h2>1. Αποδοχή</h2><p>Με τη χρήση του KatinaBot συμφωνείς με αυτούς τους όρους, την Πολιτική απορρήτου, τους κανόνες αποδεκτής χρήσης και την ισχύουσα νομοθεσία. Αν δεν συμφωνείς, μην χρησιμοποιείς την υπηρεσία.</p></section>
+        <section class="item"><h2>2. Υπηρεσία</h2><p>Το KatinaBot παρέχει δημιουργία AI chatbot, widgets ιστοσελίδας, αναλυτικά στοιχεία, συλλογή leads, συνδέσεις ημερολογίου ή κρατήσεων, πολυγλωσσική υποστήριξη και σχετικές υπηρεσίες υποστήριξης.</p></section>
+        <section class="item"><h2>3. Λογαριασμοί</h2><p>Οι ιδιοκτήτες λογαριασμών πρέπει να δίνουν ακριβή στοιχεία, να προστατεύουν τους κωδικούς τους, να επιβλέπουν τη χρήση του λογαριασμού και να ενημερώνουν την υποστήριξη για μη εξουσιοδοτημένη πρόσβαση.</p></section>
+        <section class="item"><h2>4. Αποδεκτή χρήση</h2><p>Δεν επιτρέπεται χρήση για παράνομες, παραπλανητικές, καταχρηστικές, προσβλητικές, επιβλαβείς ή παρεμβατικές ενέργειες, spam, phishing, κακόβουλο λογισμικό, παρενόχληση ή παραβίαση δικαιωμάτων τρίτων.</p></section>
+        <section class="item"><h2>5. Δεδομένα και απόρρητο</h2><p>Το περιεχόμενο και οι συνομιλίες πελατών επεξεργάζονται για την παροχή της υπηρεσίας. Το πρωτότυπο περιεχόμενο παραμένει δικό σου, προσωπικά δεδομένα δεν πωλούνται και ανώνυμα ή συγκεντρωτικά δεδομένα μπορούν να βελτιώνουν την πλατφόρμα.</p></section>
+        <section class="item"><h2>6. GDPR</h2><p>Για χρήστες στην ΕΕ/ΕΟΧ, το KatinaBot λειτουργεί συνήθως ως εκτελών την επεξεργασία για δεδομένα πελατών, ενώ η επιχείρηση παραμένει υπεύθυνη επεξεργασίας. Αιτήματα πρόσβασης, διαγραφής, φορητότητας ή DPA μπορούν να σταλούν στην υποστήριξη.</p></section>
+        <section class="item"><h2>7. Πνευματική ιδιοκτησία</h2><p>Το KatinaBot διατηρεί τα δικαιώματα στην πλατφόρμα, το λογισμικό, τον σχεδιασμό, την υποδομή και τις βελτιώσεις του. Εσύ κρατάς το περιεχόμενο που ανεβάζεις και δίνεις την άδεια που χρειάζεται για λειτουργία και βελτίωση της υπηρεσίας.</p></section>
+        <section class="item"><h2>8. Πληρωμές και επιστροφές</h2><p>Οι πληρωμένες λειτουργίες χρεώνονται με βάση το επιλεγμένο πλάνο. Συνδρομές, φόροι, όρια χρήσης, ακυρώσεις, παράθυρα επιστροφής χρημάτων και συνέπειες μη πληρωμής ακολουθούν το πλάνο και τον νόμο.</p></section>
+        <section class="item"><h2>9. Εγγυήσεις και ευθύνη</h2><p>Η υπηρεσία παρέχεται όπως είναι διαθέσιμη, χωρίς εγγύηση αδιάλειπτης λειτουργίας ή τέλειας ακρίβειας AI. Η ευθύνη περιορίζεται στον μέγιστο βαθμό που επιτρέπει η νομοθεσία.</p></section>
+        <section class="item"><h2>10. Διαθεσιμότητα και ασφάλεια</h2><p>Το KatinaBot χρησιμοποιεί εύλογες πρακτικές διαθεσιμότητας, συντήρησης, υποστήριξης, κρυπτογράφησης, ελέγχου πρόσβασης και ειδοποίησης παραβίασης, ενώ οι πελάτες παραμένουν υπεύθυνοι για την ασφάλεια των δικών τους ιστοσελίδων.</p></section>
+        <section class="item"><h2>11. Συνδέσεις τρίτων</h2><p>Συνδέσεις με ημερολόγια, Google και άλλες υπηρεσίες μπορεί να εξαρτώνται από όρους τρίτων, διαπιστευτήρια, διαθεσιμότητα και άδειες. Οι συνδεδεμένες υπηρεσίες μπορούν να ανακληθούν από τις ρυθμίσεις λογαριασμού.</p></section>
+        <section class="item"><h2>12. Τερματισμός</h2><p>Λογαριασμοί μπορούν να ανασταλούν ή να τερματιστούν για παραβίαση πολιτικών, επιβλαβή χρήση, μη πληρωμή, υπερβολική επιβάρυνση της υπηρεσίας, αίτημα διαγραφής ή επιχειρησιακούς λόγους.</p></section>
+        <section class="item"><h2>13. Δικαιώματά σου</h2><p>Μπορείς να ζητήσεις πρόσβαση, διόρθωση, διαγραφή, φορητότητα, εξαίρεση από marketing, πληροφορίες για χρήση δεδομένων σε AI μοντέλα ή να επικοινωνήσεις με την αρμόδια αρχή προστασίας δεδομένων.</p></section>
+        <section class="item"><h2>14. Διαφορές και δίκαιο</h2><p>Οι διαφορές πρέπει πρώτα να υποβάλλονται στην υποστήριξη. Οι όροι διέπονται από το ελληνικό δίκαιο και, όπου ισχύει, αρμόδια δικαιοδοσία είναι η Αθήνα, Ελλάδα.</p></section>
+        <section class="item"><h2>15. Αλλαγές</h2><p>Το KatinaBot μπορεί να ενημερώνει τους όρους. Σημαντικές αλλαγές μπορεί να ανακοινώνονται με email, ειδοποίηση στην ιστοσελίδα ή μέσα στην εφαρμογή. Η συνέχιση χρήσης σημαίνει αποδοχή των ενημερωμένων όρων.</p></section>
+        <section class="item"><h2>Επικοινωνία</h2><p>Ερωτήσεις για τους όρους μπορούν να σταλούν στο <a href="mailto:support@katinabot.com">support@katinabot.com</a>. Το KatinaBot στοχεύει να απαντά μέσα σε 5 εργάσιμες ημέρες.</p></section>
+      </div>
+    </article>
+
+    <article data-lang-panel="en">
+      <span class="eyebrow">Legal</span>
+      <h1>Terms of Service</h1>
+      <p class="intro">These terms explain how KatinaBot may be used, what each account owner is responsible for, and how payments, data, security, integrations, and disputes are handled.</p>
+      <div class="updated">Last updated: February 20, 2026</div>
+      <div class="legal-list">
+        <section class="item"><h2>1. Acceptance</h2><p>By using KatinaBot, you agree to these terms, the Privacy Policy, acceptable-use rules, and applicable law. If you disagree, do not use the service.</p></section>
+        <section class="item"><h2>2. Service</h2><p>KatinaBot provides AI chatbot creation, website widgets, analytics, lead capture, calendar or booking integrations, multi-language support, and related support services.</p></section>
+        <section class="item"><h2>3. Accounts</h2><p>Account owners must provide accurate information, protect credentials, supervise activity under their account, and notify support about unauthorized access or security concerns.</p></section>
+        <section class="item"><h2>4. Acceptable use</h2><p>You may not use KatinaBot for unlawful, deceptive, abusive, infringing, harmful, spam, phishing, malware, harassment, or system-disruption activity.</p></section>
+        <section class="item"><h2>5. Data and privacy</h2><p>Customer content and conversations are processed to provide the service. Original content remains yours, personal data is not sold, and aggregated or anonymized data may improve the platform.</p></section>
+        <section class="item"><h2>6. GDPR</h2><p>For EU/EEA users, KatinaBot generally acts as processor for customer data while the business remains controller. Data access, deletion, portability, and DPA requests can be sent to support.</p></section>
+        <section class="item"><h2>7. Intellectual property</h2><p>KatinaBot owns its platform, software, design, infrastructure, and improvements. You keep ownership of uploaded content and grant the license needed to operate and improve the service.</p></section>
+        <section class="item"><h2>8. Payments and refunds</h2><p>Paid features are billed according to the selected plan. Subscription fees, taxes, usage limits, cancellations, refund windows, and non-payment consequences follow the plan and applicable law.</p></section>
+        <section class="item"><h2>9. Warranties and liability</h2><p>The service is provided as available, without guarantees of uninterrupted operation or perfect AI accuracy. Liability is limited to the maximum extent allowed by law.</p></section>
+        <section class="item"><h2>10. Availability and security</h2><p>KatinaBot uses reasonable uptime, maintenance, support, encryption, access control, and breach-notification practices, while customers remain responsible for security on their own websites.</p></section>
+        <section class="item"><h2>11. Third-party integrations</h2><p>Calendar, Google, and other integrations may depend on third-party terms, credentials, availability, and permissions. You can revoke connected services through account settings.</p></section>
+        <section class="item"><h2>12. Termination</h2><p>Accounts may be suspended or ended for policy violations, harmful use, non-payment, excessive service impact, account deletion requests, or business reasons.</p></section>
+        <section class="item"><h2>13. Your rights</h2><p>You may request access, correction, deletion, portability, marketing opt-out, details about AI model use of your data, or contact your local data protection authority.</p></section>
+        <section class="item"><h2>14. Disputes and law</h2><p>Disputes should first be raised with support. These terms are governed by Greek law, with Athens, Greece as the stated jurisdiction where applicable.</p></section>
+        <section class="item"><h2>15. Changes</h2><p>KatinaBot may update the terms. Material changes may be announced by email, website notice, or in-app notice; continued use means acceptance of the updated terms.</p></section>
+        <section class="item"><h2>Contact</h2><p>Questions about these terms can be sent to <a href="mailto:support@katinabot.com">support@katinabot.com</a>. KatinaBot aims to respond within 5 business days.</p></section>
+      </div>
+    </article>
+  </main>
+  <footer>© 2026 KatinaBot</footer>
+</div>
+<script>
+  const toggle = document.getElementById('lang-toggle');
+  const setLang = (lang)=>{
+    const next = lang === 'en' ? 'en' : 'el';
+    document.documentElement.lang = next;
+    document.title = next === 'en' ? 'KatinaBot - Terms of Service' : 'KatinaBot - Όροι χρήσης';
+    document.querySelectorAll('[data-lang-panel]').forEach(panel=>panel.classList.toggle('active', panel.dataset.langPanel === next));
+    document.querySelectorAll('[data-el][data-en]').forEach(el=>{ el.textContent = next === 'en' ? el.dataset.en : el.dataset.el; });
+    toggle.textContent = next === 'en' ? 'EL' : 'EN';
+    toggle.setAttribute('aria-label', next === 'en' ? 'Switch page to Greek' : 'Switch page to English');
+    try{localStorage.setItem('KatinaBot-lang', next);}catch(err){}
+  };
+  try{setLang(localStorage.getItem('KatinaBot-lang') || 'el');}catch(err){setLang('el');}
+  toggle.addEventListener('click', ()=>setLang(document.documentElement.lang === 'en' ? 'el' : 'en'));
+</script>
+</body>
+</html>
